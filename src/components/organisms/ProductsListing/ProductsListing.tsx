@@ -1,0 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import styles from "./ProductsListing.module.scss"
+import { FC } from "react"
+import ProductCard from "../../molecules/ProductCard/ProductCard"
+
+interface Props {
+    [name:string]: any
+} 
+
+const ProductsListing: FC<Props> = ({data}) => {
+
+
+  return (
+    <div className={styles.pListingWrapper}>
+      {
+        data.map((prod: any) => (
+          <ProductCard 
+            image={prod.product_image.image_540x540} 
+            key={prod.id} 
+            id={prod.id} 
+            name={prod.name}
+            price={prod.stock_info.price}
+          />
+        ))
+      }
+    </div>
+  )
+}
+
+export default ProductsListing
+
+{/* <img src={prod.product_image.image_540x540} alt="image"/>
+<Typography variant="sTitle">{prod.name}</Typography>
+<Typography>{prod.stock_info.price}</Typography> */}

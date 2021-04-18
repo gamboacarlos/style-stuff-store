@@ -12,7 +12,7 @@ module.exports = {
   },
   mode: "production",
   module: {
-    rules:[
+    rules: [
       {
         use: "babel-loader",
         test: /.(ts|tsx|js|jsx)$/,
@@ -23,19 +23,21 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        test: /\.(ttf|otf|woff|woff2)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
     ]
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
-  plugins:[
+  plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      favicon: "./public/images/favicon.ico"
+      favicon: "./public/images/favicon.svg"
     })
   ]
 }

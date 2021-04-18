@@ -1,3 +1,23 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url("../../public/fonts/Roboto-Medium.ttf") format('truetype');
+  font-weight: '500';
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("../../public/fonts/Roboto-Regular.ttf") format('truetype');
+  font-weight: '400';
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url("../../public/fonts/Roboto-Light.ttf") format('truetype');
+  font-weight: '300';
+}
+
+
 *,
 *:before,
 *:after {
@@ -6,13 +26,10 @@
   box-sizing: border-box;
 }
 html {
-  font-family: sans-serif, Arial, Helvetica;
+  font-family: $primaryFont, sans-serif, Arial;
   font-size: 62.5%;
 
   @media (max-width: 1250px) {
     font-size: 50%;
   }
-}
-body {
-  background-color: hsl(139, 93%, 88%);
 }

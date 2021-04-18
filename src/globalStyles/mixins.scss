@@ -1,0 +1,27 @@
+// Breakpoints ////////////////////////////////////////////////////////////
+@mixin tablet() {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Breakpoints ////////////////////////////////////////////////////////////
+@mixin container(){
+  display: flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  min-height: auto;
+  width: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+
+  @include tablet(){
+    padding: 0;
+  }
+}

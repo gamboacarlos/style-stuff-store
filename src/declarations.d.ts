@@ -3,6 +3,7 @@ declare module "*.scss" {
   export default styles;
 }
 declare module '*.css'
+declare module '*.ttf'
 declare module '*.png' {
     const content: string;
     export default content;

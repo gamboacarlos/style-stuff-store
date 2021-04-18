@@ -1,11 +1,30 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./globalStyles/App.module.scss"
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
+import ProductsListing from "./components/organisms/ProductsListing/ProductsListing"
+import { NavBar } from "./components/organisms"
+
+interface TestData {
+  [name:string]: any
+}
 
 const App: FC = () => {
+
+  const [state, setState] = useState([]as TestData)
+
+  useEffect(() => {
+    fetch("https://www.apistorecall.xyz/api/products/category/shorts")
+      .then((res) => res.json())
+      .then((json) => setState(json))
+  },[])
+
   return (
-    <div className={styles.container}>
-      <h1>Ready</h1>
-    </div>
+    <>
+      <NavBar />
+      <div className={styles.container}>
+        <ProductsListing data={state}/>
+      </div>
+    </>
   )
 }
 

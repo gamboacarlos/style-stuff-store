@@ -1,0 +1,63 @@
+@import "../../../globalStyles/variables.scss";
+
+.navWrapper {
+  width: 100%;
+  height: 10rem;
+  position: relative;
+  border-bottom: 1px solid $grey1;
+}
+.navBody {
+  width: 100%;
+  height: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet() {
+    padding: 0 1.5rem;
+  }
+}
+.navMenu {
+  display: flex;
+  width: 35rem;
+  p {
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+  @include tablet() {
+    display: none;
+  }
+}
+.navMobileMenu {
+
+
+  img {
+      width: 3rem;
+    display: none;
+
+    @include tablet() {
+      display: block;
+    }
+  }
+}
+.navLogo {
+  width: 35rem;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 50%;
+  }
+}
+.navUser {
+  width: 35rem;
+  display: flex;
+  justify-content: end;
+  img {
+    width: 6%;
+    margin-left: 2rem;
+  }
+}

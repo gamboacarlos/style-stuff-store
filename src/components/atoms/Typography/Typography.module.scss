@@ -1,0 +1,26 @@
+@import "../../../globalStyles/variables.scss";
+
+.primaryTitle {
+  font-family: $titleFont;
+  letter-spacing: -.05rem;
+  font-size: 1.8rem;
+  color: $black;
+}
+.secundaryTitle {
+  font-family: $titleFont;
+  letter-spacing: -.05rem;
+  font-size: 1.4rem;
+  color: $black;
+}
+.paragraph {
+  font-family: $primaryFont;
+  letter-spacing: -.05rem;
+  font-size: 1.4rem;
+  color: $black;
+}
+.span {
+  font-family: $primaryFont;
+  letter-spacing: -.05rem;
+  font-size: 1.4rem;
+  color: $grey2;
+}
