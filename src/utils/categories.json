@@ -1,0 +1,130 @@
+[
+  {
+    "label": "OUTERWEAR",
+    "id": 21547,
+    "link": "/category/outerwear",
+    "subCategories": [
+      {
+        "id": 3211,
+        "label": "Parkas",
+        "link": "/category/outerwear/Parka"
+      },
+      {
+        "id": 3212,
+        "label": "Coats",
+        "link": "/category/outerwear/Coats"
+      },
+      {
+        "id": 3213,
+        "label": "Jackets",
+        "link": "/category/outerwear/Jackets"
+      },
+      {
+        "id": 3214,
+        "label": "Overhead Jackets",
+        "link": "/category/outerwear/overhead-jackets"
+      },
+      {
+        "id": 3215,
+        "label": "Weatherproof Jackets",
+        "link": "/category/outerwear/weatherproof-jackets"
+      }
+    ]
+  },
+  {
+    "label": "TOPS",
+    "id": 21548,
+    "link": "/category/tops",
+    "subCategories": [
+      {
+        "id": 3217,
+        "label": "T-Shirts",
+        "link": "/category/tops/t-shirt"
+      },
+      {
+        "id": 3218,
+        "label": "Polos",
+        "link": "/category/tops/polos"
+      },
+      {
+        "id": 3219,
+        "label": "Overshirts",
+        "link": "/category/tops/Overshirt"
+      },
+      {
+        "id": 32110,
+        "label": "Shirts",
+        "link": "/category/tops/shirts"
+      },
+      {
+        "id": 32111,
+        "label": "Knitwear",
+        "link": "/category/tops/knitwear"
+      },
+      {
+        "id": 32112,
+        "label": "Sweats",
+        "link": "/category/tops/sweats"
+      }
+    ]
+  },
+  {
+    "label": "LEGWEAR",
+    "id": 21549,
+    "link": "/category/legwear",
+    "subCategories": [
+      {
+        "id": 32114,
+        "label": "Jeans",
+        "link": "/category/legwear/jeans"
+      },
+      {
+        "id": 32115,
+        "label": "Trousers",
+        "link": "/category/legwear/trousers"
+      },
+      {
+        "id": 32116,
+        "label": "Shorts",
+        "link": "/category/legwear/shorts"
+      }
+    ]
+  },
+  {
+    "label": "ACCESSORIES",
+    "id": 21541,
+    "link": "/category/accessories",
+    "subCategories": [
+      {
+        "id": 32117,
+        "label": "Hats",
+        "link": "/category/accessories/Hats"
+      },
+      {
+        "id": 32118,
+        "label": "Sunglasses",
+        "link": "/category/accessories/Sunglasses"
+      },
+      {
+        "id": 32119,
+        "label": "Underwear",
+        "link": "/category/accessories/Underwear"
+      },
+      {
+        "id": 32120,
+        "label": "Bags",
+        "link": "/category/accessories/Bags"
+      },
+      {
+        "id": 32121,
+        "label": "Wallets & Cardholders",
+        "link": "/category/accessories/wallets"
+      },
+      {
+        "id": 32122,
+        "label": "Keyrings & Badges",
+        "link": "/category/accessories/keyrings-badges"
+      }
+    ]
+  }
+]

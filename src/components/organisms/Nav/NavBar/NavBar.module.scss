@@ -1,16 +1,16 @@
-@import "../../../globalStyles/variables.scss";
+@import "../../../../globalStyles/variables.scss";
 
 .navWrapper {
   top: 0;
   width: 100%;
-  height: 9rem;
+  height: 7rem;
   z-index: 100;
   position: fixed;
   background-color: white;
   border-bottom: 1px solid $grey1;
 
   @include tablet() {
-    height: 7rem;
+    height: 6rem;
   }
 }
 .navContainer {
@@ -40,7 +40,7 @@
     display: none;
   }
 }
-.navMenuOpenButton {
+.navMobileMenuOpenButton {
   width: 3rem;
   display: none;
 
@@ -48,30 +48,8 @@
     display: block;
   }
 }
-.navMenuCloseButton {
-  width: 3rem;
-  align-self: flex-end;
-  transition: 300ms;
-}
-.navMobileMenu {
-  position: absolute;
-  background-color: white;
-  padding: 5rem;
-  width: 60%;
-  height: 100vh;
-  left: -100%;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 99;
-  transition: 350ms;
-
-  @include mobile() {
-    width: 100%;
-  }
-}
 .navLogo {
-  width: 35rem;
+  width: 30rem;
   display: flex;
   justify-content: center;
   img {

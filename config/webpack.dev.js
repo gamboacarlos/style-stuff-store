@@ -8,20 +8,18 @@ const devConfig = {
   devServer: {
     port: 3000,
     contentBase: "../dist",
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   target: "web",
-  plugins: [
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin()
-  ],
+  plugins: [new HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()],
   devtool: "eval-source-map",
   module: {
-    rules:[
+    rules: [
       {
         use: ["style-loader", "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/,
-      },
+        test: /.(css|sass|scss)$/
+      }
     ]
   }
 }

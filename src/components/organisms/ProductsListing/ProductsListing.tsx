@@ -4,31 +4,24 @@ import { FC } from "react"
 import ProductCard from "../../molecules/ProductCard/ProductCard"
 
 interface Props {
-    [name:string]: any
-} 
+  [name: string]: any
+}
 
-const ProductsListing: FC<Props> = ({data}) => {
-
-
+const ProductsListing: FC<Props> = ({ data, loading }) => {
   return (
     <div className={styles.pListingWrapper}>
-      {
-        data.map((prod: any) => (
-          <ProductCard 
-            image={prod.product_image.image_540x540} 
-            key={prod.id} 
-            id={prod.id} 
-            name={prod.name}
-            price={prod.stock_info.price}
-          />
-        ))
-      }
+      {data.map((prod: any) => (
+        <ProductCard
+          image={prod.product_image.image_540x540}
+          key={prod.id}
+          id={prod.id}
+          name={prod.name}
+          price={prod.stock_info.price}
+          loading={loading}
+        />
+      ))}
     </div>
   )
 }
 
 export default ProductsListing
-
-{/* <img src={prod.product_image.image_540x540} alt="image"/>
-<Typography variant="sTitle">{prod.name}</Typography>
-<Typography>{prod.stock_info.price}</Typography> */}

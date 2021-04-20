@@ -6,19 +6,21 @@ const prodConfig = {
   mode: "production",
   devtool: "source-map",
   optimization: {
-    splitChunks:{
-      chunks: "all",
+    splitChunks: {
+      chunks: "all"
     }
   },
-  plugins: [new MiniCssExtractPlugin({
-    filename: "../dist/styles/[name].css"
-  })],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "../dist/styles/[name].css"
+    })
+  ],
   module: {
     rules: [
       {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/,
-      },
+        test: /.(css|sass|scss)$/
+      }
     ]
   }
 }

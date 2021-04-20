@@ -1,0 +1,24 @@
+@import "../../../../globalStyles/variables.scss";
+
+.navMenuCloseButton {
+  width: 3rem;
+  align-self: flex-end;
+  transition: 300ms;
+}
+.navMobileMenu {
+  position: absolute;
+  background-color: white;
+  padding: 5rem;
+  width: 60%;
+  height: 100vh;
+  left: -100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  transition: 350ms;
+
+  @include mobile() {
+    width: 100%;
+  }
+}

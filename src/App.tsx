@@ -1,30 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "./globalStyles/App.module.scss"
-import { FC, useEffect, useState } from "react"
-import ProductsListing from "./components/organisms/ProductsListing/ProductsListing"
+import { FC } from "react"
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import { NavBar } from "./components/organisms"
-import Text from "./components/Text"
-
-interface TestData {
-  [name:string]: any
-}
+import Category from "./components/pages/Category/Category"
+import HomePage from "./components/pages/HomePage/HomePage"
 
 const App: FC = () => {
-
-  const [state, setState] = useState([]as TestData)
-
-  useEffect(() => {
-    fetch("https://www.apistorecall.xyz/api/products/category/shorts")
-      .then((res) => res.json())
-      .then((json) => setState(json))
-  },[])
-
   return (
     <>
-      <NavBar />
-      <div className={styles.container}>
-        <ProductsListing data={state}/>
-      </div>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomePage}></Route>
+          <Route path="/category/:category/:subcategory" component={Category} />
+        </Switch>
+      </Router>
     </>
   )
 }
