@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import styles from "./NavMobileMenu.module.scss"
 import { Icons, Typography } from "@components/atoms"
 import categories from "@utils/categories.json"
