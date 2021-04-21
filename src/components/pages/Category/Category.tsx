@@ -14,10 +14,15 @@ const Category: FC = (props: any) => {
   const [state, setState] = useState([] as TestData)
 
   useEffect(() => {
-    fetch(`https://www.apistorecall.xyz/api/products/category/${subcategory}`)
-      .then((res) => res.json())
-      .then((json) => setState(json))
-  }, [state])
+    const apiCall = async () => {
+      const fetchApi = await fetch(
+        `https://www.apistorecall.xyz/api/products/category/${subcategory}`
+      )
+      const response = await fetchApi.json()
+      return setState(response)
+    }
+    apiCall()
+  }, [subcategory])
 
   return (
     <>

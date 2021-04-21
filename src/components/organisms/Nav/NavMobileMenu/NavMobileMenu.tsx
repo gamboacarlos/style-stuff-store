@@ -1,10 +1,8 @@
 import { FC } from "react"
 import styles from "./NavMobileMenu.module.scss"
-import { Icons, Typography } from "@components/atoms"
+import { Typography } from "@components/atoms"
 import categories from "@utils/categories.json"
 import { Link } from "react-router-dom"
-
-const { close } = Icons
 
 interface Props {
   openMenu: boolean
@@ -19,12 +17,6 @@ const SLIDE: React.CSSProperties = {
 const NavMobileMenu: FC<Props> = ({ openMenu, setOpenMenu }) => {
   return (
     <div className={styles.navSlideMobileMenu} style={openMenu ? SLIDE : {}}>
-      <img
-        src={close}
-        className={styles.navCloseMobileMenu}
-        alt="close"
-        onClick={() => setOpenMenu(!openMenu)}
-      />
       {categories.map((category) => {
         return (
           <div key={category.id} className={styles.mobileMenuAccordionContainer}>
@@ -34,7 +26,11 @@ const NavMobileMenu: FC<Props> = ({ openMenu, setOpenMenu }) => {
               {category.subCategories.map((subcategory) => {
                 return (
                   <li key={subcategory.id}>
-                    <Link to={subcategory.link} key={subcategory.id}>
+                    <Link
+                      to={subcategory.link}
+                      key={subcategory.id}
+                      onClick={() => setOpenMenu(!openMenu)}
+                    >
                       <Typography variant="pTitle">{subcategory.label}</Typography>
                     </Link>
                   </li>

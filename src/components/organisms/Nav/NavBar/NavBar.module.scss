@@ -10,7 +10,7 @@
   border-bottom: 1px solid $grey1;
 
   @include tablet() {
-    height: 6rem;
+    height: 7rem;
   }
 }
 .navContainer {
@@ -41,7 +41,7 @@
   }
 }
 .navMobileMenuOpenButton {
-  width: 3rem;
+  width: 2.5rem;
   display: none;
 
   @include tablet() {
@@ -51,9 +51,15 @@
 .navLogo {
   width: 30rem;
   display: flex;
+  align-self: center;
   justify-content: center;
   img {
-    width: 50%;
+    width: 16rem;
+  }
+  @include tablet() {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 2rem;
   }
 }
 .navUser {
@@ -61,7 +67,10 @@
   display: flex;
   justify-content: end;
   img {
-    width: 6%;
+    width: 2rem;
     margin-left: 2rem;
+  }
+  @include tablet() {
+    width: 12rem;
   }
 }

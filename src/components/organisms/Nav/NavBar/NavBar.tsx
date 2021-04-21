@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { NavMobileMenu, NavMenu } from "@components/organisms"
 import { Icons } from "@components/atoms"
 
-const { menu, logo, favs, user, bag } = Icons
+const { menu, logo, favs, user, bag, close } = Icons
 
 const NavBar: FC = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -16,17 +16,17 @@ const NavBar: FC = () => {
         <div className={styles.navBody}>
           <NavMenu />
           <img
-            src={menu}
+            src={openMenu ? close : menu}
             className={styles.navMobileMenuOpenButton}
             alt="menu"
             onClick={() => handleClick()}
           />
           <NavMobileMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
-          <Link to="/">
-            <div className={styles.navLogo}>
+          <div className={styles.navLogo}>
+            <Link to="/">
               <img src={logo} alt="logo" />
-            </div>
-          </Link>
+            </Link>
+          </div>
           <div className={styles.navUser}>
             <img src={user} alt="user" />
             <img src={favs} alt="favs" />
