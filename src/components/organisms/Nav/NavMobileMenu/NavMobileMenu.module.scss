@@ -1,11 +1,6 @@
 @import "../../../../globalStyles/variables.scss";
 
-.navMenuCloseButton {
-  width: 3rem;
-  align-self: flex-end;
-  transition: 300ms;
-}
-.navMobileMenu {
+.navSlideMobileMenu {
   position: absolute;
   background-color: white;
   padding: 5rem;
@@ -20,5 +15,42 @@
 
   @include mobile() {
     width: 100%;
+  }
+}
+.navCloseMobileMenu {
+  width: 3rem;
+  align-self: flex-end;
+  transition: 300ms;
+}
+.mobileMenuAccordionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuAccordionContainer {
+  position: relative;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 2rem;
+    top: 0;
+    display: block;
+
+    &:checked ~ .mobileMenuAccordionBody {
+      height: auto;
+      display: block;
+    }
+  }
+}
+.mobileMenuAccordionBody {
+  height: 0;
+  display: none;
+  overflow: hidden;
+  transition: all 0.5s ease;
+
+  li{
+    display:block;
   }
 }

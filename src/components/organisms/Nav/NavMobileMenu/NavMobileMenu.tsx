@@ -1,5 +1,10 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import styles from "./NavMobileMenu.module.scss"
+import { Icons, Typography } from "@components/atoms"
+import categories from "@utils/categories.json"
+import { Link } from "react-router-dom"
+
+const { close } = Icons
 
 interface Props {
   openMenu: boolean
@@ -12,21 +17,33 @@ const SLIDE: React.CSSProperties = {
 }
 
 const NavMobileMenu: FC<Props> = ({ openMenu, setOpenMenu }) => {
-  const handleClick = () => setOpenMenu(!openMenu)
-
   return (
-    <div className={styles.navMobileMenu} style={openMenu ? SLIDE : {}}>
+    <div className={styles.navSlideMobileMenu} style={openMenu ? SLIDE : {}}>
       <img
-        src={require("../../../../../public/images/close.svg")}
-        className={styles.navMenuCloseButton}
+        src={close}
+        className={styles.navCloseMobileMenu}
         alt="close"
-        onClick={() => handleClick()}
+        onClick={() => setOpenMenu(!openMenu)}
       />
-      <ul>
-        <li>probando</li>
-        <li>probando</li>
-        <li>probando</li>
-      </ul>
+      {categories.map((category) => {
+        return (
+          <div key={category.id} className={styles.mobileMenuAccordionContainer}>
+            <input type="checkbox" />
+            <Typography variant="pAnchor">{category.label}</Typography>
+            <ul className={styles.mobileMenuAccordionBody}>
+              {category.subCategories.map((subcategory) => {
+                return (
+                  <li key={subcategory.id}>
+                    <Link to={subcategory.link} key={subcategory.id}>
+                      <Typography variant="pTitle">{subcategory.label}</Typography>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )
+      })}
     </div>
   )
 }

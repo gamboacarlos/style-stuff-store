@@ -24,3 +24,23 @@
   font-size: 1.4rem;
   color: $grey2;
 }
+.primaryAnchor {
+  font-family: $titleFont;
+  letter-spacing: -.05rem;
+  font-size: 2rem;
+  color: $black;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  display: inline-block;
+}
+.secundaryAnchor {
+  font-family: $titleFont;
+  letter-spacing: -.03rem;
+  font-size: 1.6rem;
+  color: $black;
+  margin-right: 1rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  display: inline-block;
+}

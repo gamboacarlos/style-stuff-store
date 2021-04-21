@@ -5,22 +5,13 @@ import categories from "@utils/categories.json"
 import { Link } from "react-router-dom"
 import { Typography } from "@components/atoms"
 
-const ANCHOR_SUBSTYLES = {
-  marginRight: "1.5rem",
-  cursor: "pointer",
-  touchAction: "manipulation",
-  display: "inline-block"
-}
-
 const NavMenu: FC = () => {
   return (
     <div className={styles.navMenuWrapper}>
       {categories.map((cat) => {
         return (
           <div className={styles.navDropDownContainer} key={cat.id}>
-            <Typography variant="sTitle" subStyles={ANCHOR_SUBSTYLES}>
-              {cat.label}
-            </Typography>
+            <Typography variant="sAnchor">{cat.label}</Typography>
             <ul className={styles.navMenuDropDown}>
               {cat.subCategories.map((scat: any) => {
                 return (

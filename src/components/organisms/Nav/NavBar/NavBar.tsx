@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 import { NavMobileMenu, NavMenu } from "@components/organisms"
 import { Icons } from "@components/atoms"
 
+const { menu, logo, favs, user, bag } = Icons
+
 const NavBar: FC = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const handleClick = () => setOpenMenu(!openMenu)
-
-  const { menu, logo, favs, user, bag } = Icons
 
   return (
     <div className={styles.navWrapper}>
