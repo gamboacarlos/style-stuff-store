@@ -18,8 +18,19 @@ const prodConfig = {
   module: {
     rules: [
       {
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/
+        test: /.(css|sass|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: ["./src/globalStyles"]
+              }
+            }
+          }
+        ]
       }
     ]
   }

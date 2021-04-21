@@ -17,8 +17,19 @@ const devConfig = {
   module: {
     rules: [
       {
-        use: ["style-loader", "css-loader", "sass-loader"],
-        test: /.(css|sass|scss)$/
+        test: /.(css|sass|scss)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: ["./src/globalStyles"]
+              }
+            }
+          }
+        ]
       }
     ]
   }

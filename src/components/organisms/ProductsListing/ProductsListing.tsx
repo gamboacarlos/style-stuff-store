@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./ProductsListing.module.scss"
 import { FC } from "react"
-import ProductCard from "../../molecules/ProductCard/ProductCard"
+import { ProductCard } from "@components/molecules"
 
 interface Props {
   [name: string]: any
