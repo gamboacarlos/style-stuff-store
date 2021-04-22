@@ -1,14 +1,17 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import styles from "./NavBar.module.scss"
 import { Link } from "react-router-dom"
 import { NavMobileMenu, NavMenu } from "@components/organisms"
 import { Icons } from "@components/atoms"
+import { useSelector, useDispatch } from "react-redux"
+import { mobileMenuToggle } from "@store/interface/interface.actions"
 
 const { menu, logo, favs, user, bag, close } = Icons
 
 const NavBar: FC = () => {
-  const [openMenu, setOpenMenu] = useState(false)
-  const handleClick = () => setOpenMenu(!openMenu)
+  const dispatch = useDispatch()
+  const openMenu = useSelector((state: any) => state.interface.mobileMenuState)
+  const handleClick = () => dispatch(mobileMenuToggle(!openMenu))
 
   return (
     <div className={styles.navWrapper}>
@@ -21,7 +24,7 @@ const NavBar: FC = () => {
             alt="menu"
             onClick={() => handleClick()}
           />
-          <NavMobileMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <NavMobileMenu openMenu={openMenu} handleClick={handleClick} />
           <div className={styles.navLogo}>
             <Link to="/">
               <img src={logo} alt="logo" />

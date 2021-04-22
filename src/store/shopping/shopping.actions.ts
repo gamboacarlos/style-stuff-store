@@ -1,5 +1,5 @@
-import { ProductsArray } from "@interfaces/interfaces"
 import * as actionTypes from "./actionTypes"
+import { Dispatch } from "redux"
 
 export const setProductsData = (products: number) => {
   return {
@@ -20,12 +20,14 @@ export const removeFromCart = (id: number) => {
   }
 }
 
-export const fetchData = () => (
-  dispatch: (arg0: ProductsArray) => void,
-  getState: () => void
-) => {
-  fetch("https://www.apistorecall.xyz/api/products/category/polos")
-    .then((res) => res.json())
-    .then((json) => dispatch(setProductsData(json)))
-    .catch((err) => console.log(`Something went wrong... ${err}`))
+export const fetchData = (subCategory: string) => async (dispatch: Dispatch) => {
+  try {
+    const apiCall = await fetch(
+      `https://www.apistorecall.xyz/api/products/category/${subCategory}`
+    )
+    const response = await apiCall.json()
+    dispatch(setProductsData(response))
+  } catch (err) {
+    console.log(`Something went wrong... ${err}`)
+  }
 }

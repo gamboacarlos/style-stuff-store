@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 interface Props {
   openMenu: boolean
-  setOpenMenu: (arg0: boolean) => void
+  handleClick: (arg0: boolean) => void
 }
 
 const SLIDE: React.CSSProperties = {
@@ -14,7 +14,7 @@ const SLIDE: React.CSSProperties = {
   transition: "500ms"
 }
 
-const NavMobileMenu: FC<Props> = ({ openMenu, setOpenMenu }) => {
+const NavMobileMenu: FC<Props> = ({ openMenu, handleClick }) => {
   return (
     <div className={styles.navSlideMobileMenu} style={openMenu ? SLIDE : {}}>
       {categories.map((category) => {
@@ -29,7 +29,7 @@ const NavMobileMenu: FC<Props> = ({ openMenu, setOpenMenu }) => {
                     <Link
                       to={subcategory.link}
                       key={subcategory.id}
-                      onClick={() => setOpenMenu(!openMenu)}
+                      onClick={() => handleClick(!openMenu)}
                     >
                       <Typography variant="pTitle">{subcategory.label}</Typography>
                     </Link>

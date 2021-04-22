@@ -1,27 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "../../../globalStyles/App.module.scss"
+import styles from "@globals/App.module.scss"
 import { withRouter } from "react-router"
 import { NavBar } from "../../organisms"
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect } from "react"
 import { ProductsListing } from "../../organisms"
-
-interface TestData {
-  [name: string]: any
-}
+import { useSelector, useDispatch } from "react-redux"
+import { MainStore } from "@store/store"
+import { fetchData } from "@store/shopping/shopping.actions"
 
 const Category: FC = (props: any) => {
   const { subcategory } = props.match.params
-  const [state, setState] = useState([] as TestData)
+  const dispatch = useDispatch()
+  const state = useSelector((state: MainStore) => state.shopping.products)
 
   useEffect(() => {
-    const apiCall = async () => {
-      const fetchApi = await fetch(
-        `https://www.apistorecall.xyz/api/products/category/${subcategory}`
-      )
-      const response = await fetchApi.json()
-      return setState(response)
-    }
-    apiCall()
+    dispatch(fetchData(subcategory))
   }, [subcategory])
 
   return (

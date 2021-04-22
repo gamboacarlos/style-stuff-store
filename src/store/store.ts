@@ -5,4 +5,6 @@ import { composeWithDevTools } from "redux-devtools-extension"
 
 const mainStore = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
+export type MainStore = ReturnType<typeof rootReducer>
+
 export default mainStore
