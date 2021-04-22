@@ -1,27 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "@globals/App.module.scss"
-import { FC, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { FC, useEffect } from "react"
 import { NavBar, ProductsListing } from "@components/organisms"
-
-interface TestData {
-  [name: string]: any
-}
+import { useDispatch, useSelector } from "react-redux"
+import { fetchData } from "@store/shopping/shopping.actions"
 
 const HomePage: FC = () => {
-  const [state, setState] = useState([] as TestData)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch("https://www.apistorecall.xyz/api/products/category/polos")
-      .then((res) => res.json())
-      .then((json) => setState(json))
+    dispatch(fetchData())
   }, [])
+
+  const data = useSelector((state) => state.shopping.products)
 
   return (
     <>
       <NavBar />
       <div className={styles.container}>
-        <ProductsListing data={state} />
+        <ProductsListing data={data} />
       </div>
     </>
   )
