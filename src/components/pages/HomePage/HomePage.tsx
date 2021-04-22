@@ -2,7 +2,7 @@
 import styles from "@globals/App.module.scss"
 import { FC, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { ProductsListing } from "@components/organisms"
+import { NavBar, ProductsListing } from "@components/organisms"
 
 interface TestData {
   [name: string]: any
@@ -18,9 +18,12 @@ const HomePage: FC = () => {
   }, [])
 
   return (
-    <div className={styles.container}>
-      <ProductsListing data={state} />
-    </div>
+    <>
+      <NavBar />
+      <div className={styles.container}>
+        <ProductsListing data={state} />
+      </div>
+    </>
   )
 }
 

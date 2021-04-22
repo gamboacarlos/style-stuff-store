@@ -4,30 +4,35 @@
   font-family: $titleFont;
   letter-spacing: -.05rem;
   font-size: 1.8rem;
+  line-height: 1.9rem;
   color: $black;
 }
 .secundaryTitle {
   font-family: $titleFont;
   letter-spacing: -.05rem;
   font-size: 1.4rem;
+  line-height: 1.5rem;
   color: $black;
 }
 .paragraph {
   font-family: $primaryFont;
   letter-spacing: -.05rem;
   font-size: 1.4rem;
+  line-height: 1.4rem;
   color: $black;
 }
 .span {
   font-family: $primaryFont;
   letter-spacing: -.05rem;
   font-size: 1.4rem;
+  line-height: 1.4rem;
   color: $grey2;
 }
 .primaryAnchor {
   font-family: $titleFont;
   letter-spacing: -.05rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 1.9rem;
   color: $black;
   margin-right: 1.5rem;
   cursor: pointer;
@@ -37,7 +42,8 @@
 .secundaryAnchor {
   font-family: $titleFont;
   letter-spacing: -.03rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.5rem;
   color: $black;
   margin-right: 1rem;
   cursor: pointer;

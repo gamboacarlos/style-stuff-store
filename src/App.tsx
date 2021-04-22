@@ -9,7 +9,7 @@ const App: FC = () => {
   return (
     <>
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/category/:category/:subcategory" component={Category} />
