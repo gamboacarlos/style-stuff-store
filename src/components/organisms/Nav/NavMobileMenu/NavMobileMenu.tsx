@@ -6,10 +6,10 @@ import { Link } from "react-router-dom"
 
 interface Props {
   openMenu: boolean
-  handleClick: (arg0: boolean) => void
+  handleClick: () => void
 }
 
-const SLIDE: React.CSSProperties = {
+const SLIDE = {
   left: 0,
   transition: "500ms"
 }
@@ -29,7 +29,7 @@ const NavMobileMenu: FC<Props> = ({ openMenu, handleClick }) => {
                     <Link
                       to={subcategory.link}
                       key={subcategory.id}
-                      onClick={() => handleClick(!openMenu)}
+                      onClick={() => handleClick()}
                     >
                       <Typography variant="pTitle">{subcategory.label}</Typography>
                     </Link>

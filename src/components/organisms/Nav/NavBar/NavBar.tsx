@@ -18,6 +18,7 @@ const NavBar: FC = () => {
       <div className={styles.navContainer}>
         <div className={styles.navBody}>
           <NavMenu />
+
           <img
             src={openMenu ? close : menu}
             className={styles.navMobileMenuOpenButton}
