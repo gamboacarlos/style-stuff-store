@@ -1,10 +1,10 @@
 import { combineReducers } from "redux"
 import shoppingReducer from "./shopping/shopping.reducer"
-import interfaceReducer from "./interface/interface.reducer"
+import UIReducer from "./UI/UI.reducer"
 
 const rootReducer = combineReducers({
   shopping: shoppingReducer,
-  interface: interfaceReducer
+  UI: UIReducer
 })
 
 export default rootReducer

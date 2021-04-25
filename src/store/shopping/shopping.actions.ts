@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
-import { ProductsArray_type } from "./productsTypes"
+import { ProductsArray_type, Product_type } from "./productsTypes"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
@@ -13,6 +13,14 @@ export const setProductsData = (
   return {
     type: actionTypes.SET_PRODUCTS_DATA,
     payload: products
+  }
+}
+export const setCurrentProduct = (
+  product: Product_type
+): actionTypes.setCurrentProduct_int => {
+  return {
+    type: actionTypes.SET_CURRENT_PRODUCT,
+    payload: product
   }
 }
 export const addToCart = (id: number) => {
@@ -28,7 +36,7 @@ export const removeFromCart = (id: number) => {
   }
 }
 
-export const fetchData = (subCategory: string) => async (
+export const fetchProducts = (subCategory: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
 ) => {
   try {
@@ -38,6 +46,19 @@ export const fetchData = (subCategory: string) => async (
     )
     const response = await apiCall.json()
     dispatch(setProductsData(response))
+  } catch (err) {
+    console.log(`Something went wrong... ${err}`)
+  }
+}
+
+export const fetchSingleProduct = (id: string) => async (
+  dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
+) => {
+  try {
+    dispatch(loadingProducts())
+    const apiCall = await fetch(`https://www.apistorecall.xyz/api/products/${id}`)
+    const response = await apiCall.json()
+    dispatch(setCurrentProduct(response))
   } catch (err) {
     console.log(`Something went wrong... ${err}`)
   }

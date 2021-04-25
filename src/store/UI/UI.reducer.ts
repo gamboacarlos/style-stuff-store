@@ -6,9 +6,9 @@ interface InitialState {
 const initialState: InitialState = {
   mobileMenuState: false
 }
-const interfaceReducer = (
+const UIReducer = (
   state = initialState,
-  action: actionTypes.InterfaceStateControl_type
+  action: actionTypes.UIStateControl_type
 ): InitialState => {
   switch (action.type) {
     case actionTypes.MOBILE_MENU_TOGGLE:
@@ -18,4 +18,4 @@ const interfaceReducer = (
   }
 }
 
-export default interfaceReducer
+export default UIReducer

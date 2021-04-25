@@ -4,13 +4,14 @@ import { Link } from "react-router-dom"
 import { NavMobileMenu, NavMenu } from "@components/organisms"
 import { Icons } from "@components/atoms"
 import { useSelector, useDispatch } from "react-redux"
-import { mobileMenuToggle } from "@store/interface/interface.actions"
+import { mobileMenuToggle } from "@store/UI/UI.actions"
+import { MainStore } from "@store/store"
 
 const { menu, logo, favs, user, bag, close } = Icons
 
 const NavBar: FC = () => {
   const dispatch = useDispatch()
-  const openMenu = useSelector((state: any) => state.interface.mobileMenuState)
+  const openMenu = useSelector((state: MainStore) => state.UI.mobileMenuState)
   const handleClick = () => dispatch(mobileMenuToggle(!openMenu))
 
   return (

@@ -5,5 +5,5 @@ export interface mobileMenuToggle_int {
   payload: boolean
 }
 
-// Interface handler types ////////////////////////////////////////
-export type InterfaceStateControl_type = mobileMenuToggle_int
+// UI handler types ////////////////////////////////////////
+export type UIStateControl_type = mobileMenuToggle_int

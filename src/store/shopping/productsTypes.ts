@@ -31,13 +31,13 @@ export type ProductVariantSizes_type = {
 export type ProductMainImage_type = {
   image_270x270: string
   image_400x400: string
-  image_540x540: string
+  image_780x780: string
 }
 export type ProductImages_type = {
   [index: number]: {
     image_270x270: string
     image_400x400: string
-    image_540x540: string
+    image_780x780: string
   }
 }
 export type ProductStockInfo_type = {
@@ -46,13 +46,15 @@ export type ProductStockInfo_type = {
 
 // Product type /////////////////////////////////////////////////////////////////
 export type Product_type = {
+  id: number
+  name: string
   product: ProductInfo_type
-  collections: ProductCollections_type[]
+  collections: ProductCollections_type
   color: ProductColor_type
   variant_size: ProductCurrentSize_type
-  sizes: ProductVariantSizes_type[]
+  sizes: ProductVariantSizes_type
   product_image: ProductMainImage_type
-  product_images: ProductImages_type[]
+  product_images: ProductImages_type
   stock_info: ProductStockInfo_type
 }
 export type ProductsArray_type = {

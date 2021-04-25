@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react"
 import styles from "./NavMenu.module.scss"
 import categories from "@utils/categories.json"
@@ -16,11 +15,11 @@ const NavMenu: FC = () => {
             <div className={styles.navMenuDropDownWrapper}>
               <ul className={styles.navMenuDropDownBody}>
                 <div className={styles.dropDownAnchors}>
-                  {cat.subCategories.map((scat: any) => {
+                  {cat.subCategories.map((subcat) => {
                     return (
-                      <li key={scat.id} className={styles.navMenuAnchor}>
-                        <Link to={scat.link}>
-                          <Typography variant="sAnchor">{scat.label}</Typography>
+                      <li key={subcat.id} className={styles.navMenuAnchor}>
+                        <Link to={subcat.link}>
+                          <Typography variant="sAnchor">{subcat.label}</Typography>
                         </Link>
                       </li>
                     )

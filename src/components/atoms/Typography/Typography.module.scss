@@ -50,3 +50,10 @@
   touch-action: manipulation;
   display: inline-block;
 }
+.tertiaryTitle {
+  font-family: $secundaryFont;
+  letter-spacing: -.05rem;
+  font-size: 1.8rem;
+  line-height: 1.5rem;
+  color: $black;
+}

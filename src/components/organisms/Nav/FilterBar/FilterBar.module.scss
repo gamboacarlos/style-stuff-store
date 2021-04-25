@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.filterBarWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8rem;
+    padding: 1.7rem 0;
+    border-bottom: 1px solid $grey1;
+}
+.emptyDiv{
+width: 30%;
+}
+.subCategoryNameWrapper{
+width: 30%;
+text-align: center;
+padding-bottom: 1rem;
+}
+.filterWrapper{
+ width: 30%;   
+}
