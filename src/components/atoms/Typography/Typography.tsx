@@ -23,6 +23,8 @@ const Typography: FC<Props> = ({ children, variant, subStyles }) => {
         return styles.secundaryAnchor
       case "tTitle":
         return styles.tertiaryTitle
+      case "tSubTitle":
+        return styles.tertiarySubTitle
       case "span":
         return styles.span
       default:

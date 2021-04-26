@@ -11,7 +11,7 @@ const FilterBar: FC<Props> = ({ subCategoryName }) => {
     <div className={styles.filterBarWrapper}>
       <div className={styles.emptyDiv}></div>
       <div className={styles.subCategoryNameWrapper}>
-        <Typography variant="tTitle">{subCategoryName.toUpperCase()}</Typography>
+        <Typography variant="tSubTitle">{subCategoryName.toUpperCase()}</Typography>
       </div>
       <div className={styles.filterWrapper}></div>
     </div>

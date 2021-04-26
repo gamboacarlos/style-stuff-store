@@ -1,5 +1,44 @@
-@import 'variables.scss';
+@import "variables.scss";
 
-.container{
-    @include container();
+.container {
+  @include container();
+  margin-top: 7rem;
+}
+.ProductInfoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.productImages {
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+.infoContainer {
+  position: relative;
+}
+.infoBody {
+  position: sticky;
+  right: calc(25% + (100vw - 1440px) / 4);
+  transform: translate(-20%);
+  top: 16%;
+  width: 40rem;
+  height: 30rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  @include tablet() {
+    margin-right: 1rem;
+    transform: translate(-10%);
+  }
 }

@@ -11,7 +11,7 @@ import FilterBar from "@components/organisms/Nav/FilterBar/FilterBar"
 const Category: FC = (props: any) => {
   const { subcategory } = props.match.params
   const dispatch = useDispatch()
-  const state = useSelector((state: MainStore) => state.shopping.products)
+  const data = useSelector((state: MainStore) => state.shopping.products)
 
   useEffect(() => {
     dispatch(fetchProducts(subcategory))
@@ -21,7 +21,7 @@ const Category: FC = (props: any) => {
     <>
       <FilterBar subCategoryName={subcategory} />
       <div className={styles.container}>
-        <ProductsListing data={state} />
+        <ProductsListing data={data} />
       </div>
     </>
   )

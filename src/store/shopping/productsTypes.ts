@@ -45,7 +45,7 @@ export type ProductStockInfo_type = {
 }
 
 // Product type /////////////////////////////////////////////////////////////////
-export type Product_type = {
+export interface Product_type {
   id: number
   name: string
   product: ProductInfo_type
@@ -57,6 +57,6 @@ export type Product_type = {
   product_images: ProductImages_type
   stock_info: ProductStockInfo_type
 }
-export type ProductsArray_type = {
-  [index: number]: Product_type
-}
+// export type ProductsArray_type = {
+//   [index: number]: Product_type
+// }

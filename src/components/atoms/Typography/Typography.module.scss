@@ -1,4 +1,4 @@
-@import "../../../globalStyles/variables.scss";
+@import "variables.scss";
 
 .primaryTitle {
   font-family: $titleFont;
@@ -52,8 +52,15 @@
 }
 .tertiaryTitle {
   font-family: $secundaryFont;
-  letter-spacing: -.05rem;
+  font-size: 2.4rem;
+  line-height: 3rem;
+  color: $black;
+  text-align: center;
+}
+.tertiarySubTitle {
+  font-family: $secundaryFont;
+  letter-spacing: -.03rem;
   font-size: 1.8rem;
-  line-height: 1.5rem;
+  line-height: 1.6rem;
   color: $black;
 }

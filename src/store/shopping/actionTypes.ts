@@ -1,4 +1,4 @@
-import { ProductsArray_type, Product_type } from "./productsTypes"
+import { Product_type } from "./productsTypes"
 
 // Loading products action type and interface ////////////////////////////////
 export const LOADING_PRODUCTS = "LOADING_PRODUCTS"
@@ -17,13 +17,13 @@ export interface fetchProducts_int {
 export const SET_PRODUCTS_DATA = "SET_PRODUCTS_DATA"
 export interface setProductsData_int {
   type: typeof SET_PRODUCTS_DATA
-  payload: ProductsArray_type
+  payload: Product_type[]
 }
 // Set current product action type and interface ////////////////////////////////
 export const SET_CURRENT_PRODUCT = "SET_CURRENT_PRODUCT"
 export interface setCurrentProduct_int {
   type: typeof SET_CURRENT_PRODUCT
-  payload: Product_type
+  payload: Product_type[]
 }
 
 // Get products fail action type and interface ////////////////////////////////

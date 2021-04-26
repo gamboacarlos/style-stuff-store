@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes"
-import { ProductsArray_type } from "./productsTypes"
+import { Product_type } from "./productsTypes"
 
 interface InitialState_int {
-  products: ProductsArray_type
-  cart: ProductsArray_type
-  currentProduct: ProductsArray_type
+  products: Product_type[]
+  cart: Product_type[]
+  currentProduct: Product_type[]
   loading: boolean
 }
 
@@ -25,7 +25,7 @@ const shoppingReducer = (
     case actionTypes.SET_PRODUCTS_DATA:
       return { ...state, products: action.payload, loading: false }
     case actionTypes.SET_CURRENT_PRODUCT:
-      return { ...state, currentProduct: { ...action.payload }, loading: false }
+      return { ...state, currentProduct: action.payload, loading: false }
     case actionTypes.ADD_TO_CART:
       return state
     case actionTypes.REMOVE_FROM_CART:
