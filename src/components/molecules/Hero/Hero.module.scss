@@ -1,0 +1,57 @@
+@import "variables.scss";
+
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 7rem;
+}
+.buttonContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  height: 10rem;
+  bottom: 5%;
+  right: 30%;
+
+  p {
+    color: white;
+    font-size: 2.8rem;
+    line-height: 2.4rem;
+  }
+
+  button {
+    @include button();
+    width: 30%;
+    height: 5rem;
+    padding: 0;
+
+    @include mobile() {
+      width: 60%;
+      background-color: white;
+      color: $black;
+    }
+  }
+
+  @include mobile() {
+    height: 12rem;
+  }
+}
+.mainImage {
+  display: block;
+  width: 100%;
+
+  @include mobile() {
+    display: none;
+  }
+}
+.mobileImage {
+  display: none;
+
+  @include mobile() {
+    display: block;
+    width: 100%;
+  }
+}

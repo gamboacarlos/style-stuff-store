@@ -25,15 +25,15 @@ const NavMobileMenu: FC<Props> = ({ openMenu, handleClick }) => {
             <ul className={styles.mobileMenuAccordionBody}>
               {category.subCategories.map((subcategory) => {
                 return (
-                  <li key={subcategory.id}>
-                    <Link
-                      to={subcategory.link}
-                      key={subcategory.id}
-                      onClick={() => handleClick()}
-                    >
+                  <Link
+                    to={subcategory.link}
+                    key={subcategory.id}
+                    onClick={() => handleClick()}
+                  >
+                    <li>
                       <Typography variant="pTitle">{subcategory.label}</Typography>
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 )
               })}
             </ul>
