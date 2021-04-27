@@ -8,3 +8,11 @@ export const mobileMenuToggle = (
     payload: currentState
   }
 }
+export const selectSizeToggle = (
+  currentState: string
+): actionTypes.selectSizeToggle_int => {
+  return {
+    type: actionTypes.SELECT_SIZE_TOGGLE,
+    payload: currentState
+  }
+}

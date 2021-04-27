@@ -21,12 +21,10 @@ export type ProductCurrentSize_type = {
   display_value: string
 }
 export type ProductVariantSizes_type = {
-  [index: number]: {
-    variant_id: string
-    size: string
-    id: string
-    in_stock: number
-  }
+  variant_id: string
+  size: string
+  id: string
+  in_stock: number
 }
 export type ProductMainImage_type = {
   image_270x270: string
@@ -52,11 +50,8 @@ export interface Product_type {
   collections: ProductCollections_type
   color: ProductColor_type
   variant_size: ProductCurrentSize_type
-  sizes: ProductVariantSizes_type
+  sizes: ProductVariantSizes_type[]
   product_image: ProductMainImage_type
   product_images: ProductImages_type
   stock_info: ProductStockInfo_type
 }
-// export type ProductsArray_type = {
-//   [index: number]: Product_type
-// }

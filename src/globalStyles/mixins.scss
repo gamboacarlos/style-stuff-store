@@ -11,17 +11,28 @@
 }
 
 // Main container ////////////////////////////////////////////////////////////
-@mixin container(){
+@mixin container() {
   display: flex;
   flex-direction: column;
   flex-flow: column nowrap;
-  min-height: auto;
   width: 100%;
   max-width: 144rem;
   margin: 0 auto;
   padding: 0 3rem;
 
-  @include tablet(){
+  @include tablet() {
     padding: 0;
   }
+}
+
+// Button ///////////////////////////////////////////////////////////////////
+@mixin button() {
+  width: 100%;
+  padding: 2rem 5rem;
+  background-color: $black;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+  font-family: $titleFont;
+  font-size: 1.6rem;
 }
