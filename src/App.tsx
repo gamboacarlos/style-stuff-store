@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Footer } from "@components/molecules"
 import ProductDetails from "@components/pages/ProductDetails/ProductDetails"
 import { FC } from "react"
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
@@ -15,14 +16,7 @@ const Layout: FC<Props> = ({ children }) => {
     <>
       <NavBar />
       {children}
-      <div
-        style={{
-          width: "100%",
-          height: "40rem",
-          backgroundColor: "#eeeeee",
-          position: "relative"
-        }}
-      ></div>
+      <Footer />
     </>
   )
 }

@@ -79,7 +79,6 @@ const ProductDetails: FC = (props: any) => {
           )
         })}
       </div>
-      <div></div>
     </>
   )
 }

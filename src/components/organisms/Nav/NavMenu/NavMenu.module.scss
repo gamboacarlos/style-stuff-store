@@ -15,6 +15,11 @@
   display: flex;
   align-items: center;
   border-bottom: transparent;
+  margin:0 1rem;
+
+  &:first-child{
+    margin-left: 0;
+  }
 
   &:hover div {
     visibility: visible;

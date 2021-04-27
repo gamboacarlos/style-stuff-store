@@ -12,6 +12,7 @@
   flex-direction: column;
   z-index: 99;
   transition: 350ms;
+  overflow: scroll;
 
   @include mobile() {
     width: 100%;
