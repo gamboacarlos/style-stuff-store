@@ -1,4 +1,4 @@
-import { Typography } from "@components/atoms"
+import { Button, Typography } from "@components/atoms"
 import styles from "./Hero.module.scss"
 import { FC } from "react"
 import { Link } from "react-router-dom"
@@ -17,7 +17,7 @@ const Hero: FC<Props> = ({ mainImage, mobileImage, title }) => {
         <img src={mobileImage} alt="image" className={styles.mobileImage} />
         <div className={styles.buttonContainer}>
           <Typography variant="tTitle">{title}</Typography>
-          <button>Buy now</button>
+          <Button>Shop now</Button>
         </div>
       </div>
     </Link>

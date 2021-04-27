@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { MainStore } from "@store/store"
 import { fetchProducts } from "@store/shopping/shopping.actions"
 import FilterBar from "@components/organisms/Nav/FilterBar/FilterBar"
+import { Container } from "@components/atoms"
 
 const Category: FC = (props: any) => {
   const { subcategory } = props.match.params
@@ -20,9 +21,9 @@ const Category: FC = (props: any) => {
   return (
     <>
       <FilterBar subCategoryName={subcategory} />
-      <div className={styles.container}>
+      <Container>
         <ProductsListing data={data} />
-      </div>
+      </Container>
     </>
   )
 }

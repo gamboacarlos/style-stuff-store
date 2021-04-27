@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "@globals/App.module.scss"
 import { FC, useEffect } from "react"
 import { NavBar, ProductsListing } from "@components/organisms"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchProducts } from "@store/shopping/shopping.actions"
 import { MainStore } from "@store/store"
+import { Hero } from "@components/molecules"
+import { Container } from "@components/atoms"
 import millerain from "@assets/images/millerain.jpg"
 import millerainMobile from "@assets/images/millerainMobile.jpg"
-import { Hero } from "@components/molecules"
 
 const HomePage: FC = () => {
   const dispatch = useDispatch()
@@ -21,14 +20,14 @@ const HomePage: FC = () => {
   return (
     <>
       <NavBar />
-      <div className={styles.container}>
+      <Container>
         <Hero
           mainImage={millerain}
           mobileImage={millerainMobile}
           title="BRITISH MILLERAIN"
         />
         <ProductsListing data={data} />
-      </div>
+      </Container>
     </>
   )
 }
