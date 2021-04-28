@@ -17,7 +17,8 @@
       flex-direction: row;
       flex-wrap: nowrap;
       overflow-x: auto;
-  
+      z-index: 20;
+      
       img {
         flex: 0 0 auto;
       }

@@ -1,0 +1,61 @@
+@import "variables.scss";
+
+.bagItemWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2.5rem 1rem;
+  border-bottom: 1px solid $grey1;
+
+  img {
+    height: 9rem;
+    width: auto;
+  }
+}
+.bagItemInfo {
+  width: 50%;
+  position: relative;
+
+  :nth-child(2) {
+    margin-top: 0.7rem;
+  }
+
+  :last-child {
+    position: absolute;
+    bottom: 0;
+  }
+
+  @include mobile() {
+    width: 60%;
+  }
+}
+.itemQtyControls {
+  width: 7%;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  button {
+    text-align: center;
+    color: $black;
+    font-size: 1.4rem;
+    border: 1px solid $grey1;
+    background-color: white;
+    padding: 0.4rem;
+  }
+  p {
+    align-self: center;
+  }
+}
+.itemRemoveControl {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 1.1rem;
+    height: auto;
+  }
+}

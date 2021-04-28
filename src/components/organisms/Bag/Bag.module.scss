@@ -1,0 +1,51 @@
+@import "variables.scss";
+
+.bagWrapper {
+  position: absolute;
+  height: 100vh;
+  width: 40rem;
+  padding: 2rem;
+  background-color: white;
+  top: 7rem;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  transition: all 400ms;
+
+  @include mobile() {
+    width: 100%;
+  }
+}
+.bagTitle {
+  width: 100%;
+  height: 4rem;
+  text-align: center;
+  border-bottom: 1px solid $grey1;
+}
+.bagItems{
+  height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.bagTotal{
+  height: 8rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $grey1;
+  border-bottom: 1px solid $grey1;
+}
+.bagMenu{
+  padding: 7rem 0;
+
+  button:nth-child(2){
+    background-color: white;
+    border: 1px solid $black;
+    margin-top: 2rem;
+    color: $black;
+  }
+}
+

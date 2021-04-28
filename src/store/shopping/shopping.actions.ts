@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
-import { Product_type } from "./productsTypes"
+import { Product_type, SizeInfo_int } from "./productsTypes"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
@@ -23,15 +23,36 @@ export const setCurrentProduct = (
     payload: product
   }
 }
-export const addToCart = (id: number) => {
+export const addToBag = (
+  id: number,
+  sizeInfo: SizeInfo_int
+): actionTypes.addToBag_int => {
   return {
-    type: actionTypes.ADD_TO_CART,
+    type: actionTypes.ADD_TO_BAG,
+    payload: {
+      id: id,
+      sizeInfo: {
+        variant_id: sizeInfo.variant_id,
+        size: sizeInfo.size
+      }
+    }
+  }
+}
+export const removeFromBag = (id: string): actionTypes.removeFromBag_int => {
+  return {
+    type: actionTypes.REMOVE_FROM_BAG,
     payload: id
   }
 }
-export const removeFromCart = (id: number) => {
+export const increaseQty = (id: string): actionTypes.increaseQty_int => {
   return {
-    type: actionTypes.REMOVE_FROM_CART,
+    type: actionTypes.INCREASE_QTY,
+    payload: id
+  }
+}
+export const decreaseQty = (id: string): actionTypes.decreaseQty_int => {
+  return {
+    type: actionTypes.DECREASE_QTY,
     payload: id
   }
 }

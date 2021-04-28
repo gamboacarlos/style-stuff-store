@@ -1,19 +1,19 @@
-import { Product_type } from "./productsTypes"
+import { Product_type, SizeInfo_int } from "./productsTypes"
 
-// Loading products action type and interface ////////////////////////////////
+// Loading products action type and interface ///////////////////////////////////
 export const LOADING_PRODUCTS = "LOADING_PRODUCTS"
 export interface loadingProducts_int {
   type: typeof LOADING_PRODUCTS
 }
 
-// Fetch data action type and interface ////////////////////////////////
+// Fetch data action type and interface /////////////////////////////////////////
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS"
 export interface fetchProducts_int {
   type: typeof FETCH_PRODUCTS
   payload: string
 }
 
-// Set products action type and interface ////////////////////////////////
+// Set products action type and interface ///////////////////////////////////////
 export const SET_PRODUCTS_DATA = "SET_PRODUCTS_DATA"
 export interface setProductsData_int {
   type: typeof SET_PRODUCTS_DATA
@@ -26,29 +26,50 @@ export interface setCurrentProduct_int {
   payload: Product_type[]
 }
 
-// Get products fail action type and interface ////////////////////////////////
+// Get products fail action type and interface /////////////////////////////////
 export const GET_PRODUCTS_FAIL = "GET_PRODUCTS_FAIL"
 export interface getProductsFail_int {
   type: typeof GET_PRODUCTS_FAIL
 }
 
-// Add to cart fail action type and interface ////////////////////////////////
-export const ADD_TO_CART = "ADD_TO_CART"
-export interface addToCart_int {
-  type: typeof ADD_TO_CART
+// Add to cart action type and interface ///////////////////////////////////////
+export const ADD_TO_BAG = "ADD_TO_BAG"
+export interface addToBag_int {
+  type: typeof ADD_TO_BAG
+  payload: {
+    id: number
+    sizeInfo: SizeInfo_int
+  }
 }
 
-// Remove from cart fail action type and interface ////////////////////////////////
-export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
-export interface removeFromCart_int {
-  type: typeof REMOVE_FROM_CART
+// Remove from cart action type and interface /////////////////////////////////
+export const REMOVE_FROM_BAG = "REMOVE_FROM_BAG"
+export interface removeFromBag_int {
+  type: typeof REMOVE_FROM_BAG
+  payload: string
 }
 
-// Fetch and dispatch handler type ////////////////////////////////
+// Increase quantity type and interface ///////////////////////////////////////
+export const INCREASE_QTY = "INCREASE_QTY"
+export interface increaseQty_int {
+  type: typeof INCREASE_QTY
+  payload: string
+}
+
+// Decrease quantity type and interface //////////////////////////////////////
+export const DECREASE_QTY = "DECREASE_QTY"
+export interface decreaseQty_int {
+  type: typeof DECREASE_QTY
+  payload: string
+}
+
+// Fetch and dispatch handler type ///////////////////////////////////////////
 export type DispatchFetchAndSetProducts_type =
   | loadingProducts_int
   | setProductsData_int
   | setCurrentProduct_int
+  | increaseQty_int
+  | decreaseQty_int
   | getProductsFail_int
-  | addToCart_int
-  | removeFromCart_int
+  | addToBag_int
+  | removeFromBag_int

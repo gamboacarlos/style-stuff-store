@@ -1,10 +1,10 @@
 import { FC } from "react"
 import styles from "./NavBar.module.scss"
 import { Link } from "react-router-dom"
-import { NavMobileMenu, NavMenu } from "@components/organisms"
+import { NavMobileMenu, NavMenu, Bag } from "@components/organisms"
 import { Icons } from "@components/atoms"
 import { useSelector, useDispatch } from "react-redux"
-import { mobileMenuToggle } from "@store/UI/UI.actions"
+import { mobileMenuToggle, shoppingBagToggle } from "@store/UI/UI.actions"
 import { MainStore } from "@store/store"
 
 const { menu, logo, favs, user, bag, close } = Icons
@@ -12,6 +12,7 @@ const { menu, logo, favs, user, bag, close } = Icons
 const NavBar: FC = () => {
   const dispatch = useDispatch()
   const openMenu = useSelector((state: MainStore) => state.UI.mobileMenuState)
+  const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
   const handleClick = () => dispatch(mobileMenuToggle(!openMenu))
 
   return (
@@ -19,7 +20,6 @@ const NavBar: FC = () => {
       <div className={styles.navContainer}>
         <div className={styles.navBody}>
           <NavMenu />
-
           <img
             src={openMenu ? close : menu}
             className={styles.navMobileMenuOpenButton}
@@ -35,9 +35,14 @@ const NavBar: FC = () => {
           <div className={styles.navUser}>
             <img src={user} alt="user" />
             <img src={favs} alt="favs" />
-            <img src={bag} alt="bag" />
+            <img
+              src={bag}
+              alt="bag"
+              onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}
+            />
           </div>
         </div>
+        <Bag />
       </div>
     </div>
   )

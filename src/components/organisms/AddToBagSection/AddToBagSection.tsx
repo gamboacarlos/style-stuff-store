@@ -2,10 +2,11 @@ import { Button, Typography } from "@components/atoms"
 import { DeliveryInfo } from "@components/molecules"
 import { Product_type } from "@store/shopping/productsTypes"
 import { selectSizeToggle } from "@store/UI/UI.actions"
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import styles from "./AddToBagSection.module.scss"
 import { MainStore } from "@store/store"
+import { addToBag } from "@store/shopping/shopping.actions"
 
 interface Props {
   data: Product_type
@@ -14,6 +15,12 @@ interface Props {
 const AddToBagSection: FC<Props> = ({ data }) => {
   const dispatch = useDispatch()
   const sizeSelectorState = useSelector((state: MainStore) => state.UI.selectSizeState)
+  const handleSize = (size: string, variant_id: string) => {
+    return dispatch(selectSizeToggle(size, variant_id))
+  }
+  useEffect(() => {
+    dispatch(selectSizeToggle(data.sizes[0].size, data.sizes[0].variant_id))
+  }, [data])
 
   return (
     <div className={styles.addToBagWrapper}>
@@ -24,20 +31,23 @@ const AddToBagSection: FC<Props> = ({ data }) => {
           {data.sizes.map((variant) => {
             return (
               <div
+                id="sizeContainer"
                 key={variant.id}
                 className={
-                  sizeSelectorState === variant.id || variant.size === "One Size"
+                  sizeSelectorState.size === variant.size || variant.size === "One Size"
                     ? styles.sizeBoxUnselected
                     : styles.sizeBoxSelected
                 }
-                onClick={() => dispatch(selectSizeToggle(variant.id))}
+                onClick={() => handleSize(variant.size, variant.variant_id)}
               >
                 <Typography variant="sTitle">{variant.size}</Typography>
               </div>
             )
           })}
         </div>
-        <Button>Add to bag</Button>
+        <Button onClick={() => dispatch(addToBag(data.id, sizeSelectorState))}>
+          Add to bag
+        </Button>
         <DeliveryInfo />
       </div>
     </div>

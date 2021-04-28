@@ -9,10 +9,22 @@ export const mobileMenuToggle = (
   }
 }
 export const selectSizeToggle = (
-  currentState: string
+  size: string,
+  variant_id: string
 ): actionTypes.selectSizeToggle_int => {
   return {
     type: actionTypes.SELECT_SIZE_TOGGLE,
+    payload: {
+      size: size,
+      variant_id: variant_id
+    }
+  }
+}
+export const shoppingBagToggle = (
+  currentState: boolean
+): actionTypes.shoppingBagToggle_int => {
+  return {
+    type: actionTypes.SHOPPING_BAG_TOGGLE,
     payload: currentState
   }
 }

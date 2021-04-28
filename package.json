@@ -15,7 +15,7 @@
   "dependencies": {
     "@types/redux-thunk": "^2.1.0",
     "core-js": "^3.10.0",
-    "framer-motion": "^4.1.5",
+    "framer-motion": "^4.1.11",
     "lodash": "^4.17.21",
     "nanoid": "^3.1.22",
     "react": "^17.0.2",

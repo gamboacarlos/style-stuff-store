@@ -7,14 +7,14 @@ export type ProductInfo_type = {
 export type ProductCollections_type = {
   [index: number]: string
 }
-// export type ProductColor_type = {
-//   raw_value: string
-//   display_value: string
-//   color_group: {
-//     display_value: string
-//     hexcolor: string
-//   }
-// }
+export type ProductColor_type = {
+  raw_value: string
+  display_value: string
+  color_group: {
+    display_value: string
+    hexcolor: string
+  }
+}
 export type ProductCurrentSize_type = {
   id: string
   raw_value: string
@@ -42,16 +42,33 @@ export type ProductStockInfo_type = {
   price: number
 }
 
-// Product type /////////////////////////////////////////////////////////////////
+// Product interface /////////////////////////////////////////////////////////////////
 export interface Product_type {
   id: number
   name: string
   product: ProductInfo_type
   collections: ProductCollections_type
-  // color: ProductColor_type
+  color: ProductColor_type
   variant_size: ProductCurrentSize_type
   sizes: ProductVariantSizes_type[]
   product_image: ProductMainImage_type
   product_images: ProductImages_type
   stock_info: ProductStockInfo_type
+}
+
+// Shopping Bag interface /////////////////////////////////////////////////////////////////
+export interface BagItem_int {
+  name: string
+  price: number
+  image: string
+  id: number
+  variant_id: string
+  size: string
+  qty: number
+}
+
+// Size info interface /////////////////////////////////////////////////////////////////
+export interface SizeInfo_int {
+  variant_id: string
+  size: string
 }
