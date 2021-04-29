@@ -1,9 +1,10 @@
 import { FC } from "react"
 import styles from "./Bag.module.scss"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { MainStore } from "@store/store"
 import { Button, Typography } from "@components/atoms"
 import { BagItem } from "@components/molecules"
+import { shoppingBagToggle } from "@store/UI/UI.actions"
 
 const SLIDE = {
   right: 0,
@@ -11,6 +12,7 @@ const SLIDE = {
 }
 
 const Bag: FC = () => {
+  const dispatch = useDispatch()
   const bagData = useSelector((state: MainStore) => state.shopping.bag)
   const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
 
@@ -30,7 +32,9 @@ const Bag: FC = () => {
       </div>
       <div className={styles.bagMenu}>
         <Button>Checkout</Button>
-        <Button>Continue shopping</Button>
+        <Button onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}>
+          Continue shopping
+        </Button>
       </div>
     </div>
   )

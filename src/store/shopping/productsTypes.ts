@@ -43,7 +43,7 @@ export type ProductStockInfo_type = {
 }
 
 // Product interface /////////////////////////////////////////////////////////////////
-export interface Product_type {
+export interface Product_int {
   id: number
   name: string
   product: ProductInfo_type

@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
-import { Product_type, SizeInfo_int } from "./productsTypes"
+import { Product_int, SizeInfo_int } from "./productsTypes"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
@@ -8,7 +8,7 @@ export const loadingProducts = (): actionTypes.loadingProducts_int => {
   }
 }
 export const setProductsData = (
-  products: Product_type[]
+  products: Product_int[]
 ): actionTypes.setProductsData_int => {
   return {
     type: actionTypes.SET_PRODUCTS_DATA,
@@ -16,7 +16,7 @@ export const setProductsData = (
   }
 }
 export const setCurrentProduct = (
-  product: Product_type[]
+  product: Product_int[]
 ): actionTypes.setCurrentProduct_int => {
   return {
     type: actionTypes.SET_CURRENT_PRODUCT,

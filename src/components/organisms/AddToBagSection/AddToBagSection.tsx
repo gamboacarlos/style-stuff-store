@@ -1,6 +1,6 @@
 import { Button, Typography } from "@components/atoms"
 import { DeliveryInfo } from "@components/molecules"
-import { Product_type } from "@store/shopping/productsTypes"
+import { Product_int } from "@store/shopping/productsTypes"
 import { selectSizeToggle } from "@store/UI/UI.actions"
 import { FC, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
@@ -9,7 +9,7 @@ import { MainStore } from "@store/store"
 import { addToBag } from "@store/shopping/shopping.actions"
 
 interface Props {
-  data: Product_type
+  data: Product_int
 }
 
 const AddToBagSection: FC<Props> = ({ data }) => {

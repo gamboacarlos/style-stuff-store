@@ -1,5 +1,3 @@
-import { SizeInfo_int } from "@store/shopping/productsTypes"
-
 // Mobile menu toggle open/close ////////////////////////////////////////
 export const MOBILE_MENU_TOGGLE = "MOBILE_MENU_TOGGLE"
 export interface mobileMenuToggle_int {

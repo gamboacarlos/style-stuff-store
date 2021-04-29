@@ -1,4 +1,3 @@
-import { SizeInfo_int } from "@store/shopping/productsTypes"
 import * as actionTypes from "./actionTypes"
 
 interface InitialState {

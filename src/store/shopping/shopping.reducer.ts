@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes"
-import { BagItem_int, Product_type } from "./productsTypes"
+import { BagItem_int, Product_int } from "./productsTypes"
 
 interface InitialState_int {
-  products: Product_type[]
+  products: Product_int[]
   bag: BagItem_int[]
-  currentProduct: Product_type[]
+  currentProduct: Product_int[]
   loading: boolean
 }
 
