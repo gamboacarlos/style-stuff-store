@@ -8,7 +8,7 @@ interface Props {
 
 const Button: FC<Props> = ({ children, onClick }) => {
   return (
-    <button className={styles.buttonWrapper} onClick={onClick}>
+    <button className={styles.buttonWrapper} onClick={onClick} data-testid="button">
       {children}
     </button>
   )
