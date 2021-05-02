@@ -8,9 +8,10 @@ interface Props {
   children: ReactNode
   subStyles?: InLineStyles
   variant?: string
+  testId?: string
 }
 
-const Typography: FC<Props> = ({ children, variant, subStyles }) => {
+const Typography: FC<Props> = ({ children, variant, subStyles, testId }) => {
   const style = () => {
     switch (variant) {
       case "pTitle":
@@ -32,7 +33,7 @@ const Typography: FC<Props> = ({ children, variant, subStyles }) => {
     }
   }
   return (
-    <p className={style()} style={subStyles}>
+    <p className={style()} style={subStyles} data-testid={testId}>
       {children}
     </p>
   )
