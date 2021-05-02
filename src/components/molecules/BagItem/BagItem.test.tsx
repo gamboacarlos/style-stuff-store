@@ -6,7 +6,7 @@ import { FC } from "react"
 import { testProductBagItem } from "@utils/test"
 
 // Test ============================================================================
-test("BagItem component renders name correctly", () => {
+test("BagItem component renders name, size and quantity correctly", () => {
   const { getByText } = render(<BagItem data={testProductBagItem} />, {
     wrapper: TestingWrapper as FC
   })

@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import styles from "./BagItem.module.scss"
 import { Icons, Typography } from "@components/atoms"
 import { BagItem_int } from "@store/shopping/productsTypes"
@@ -14,14 +14,20 @@ interface Props {
 
 const BagItem: FC<Props> = ({ data }) => {
   const dispatch = useDispatch()
-  const handleDelete = (id: string) => dispatch(removeFromBag(id))
+  const handleDelete = (id: string) => {
+    setTimeout(() => {
+      dispatch(removeFromBag(id))
+    }, 600)
+    return setRemoveAnimation(!removeAnimation)
+  }
   const handleIncrease = (id: string) => dispatch(increaseQty(id))
   const handleDecrease = (id: string) => (data.qty > 1 ? dispatch(decreaseQty(id)) : null)
+  const [removeAnimation, setRemoveAnimation] = useState(false)
 
   return (
     <motion.div
       initial={"hide"}
-      animate={"show"}
+      animate={removeAnimation ? "hide" : "show"}
       variants={{
         show: {
           transform: "translateX(0em)",
@@ -31,7 +37,7 @@ const BagItem: FC<Props> = ({ data }) => {
         hide: {
           transform: "translateX(5em)",
           opacity: 0,
-          transition: { delay: 0.03, duration: 0.1 }
+          transition: { delay: 0.05, duration: 0.2 }
         }
       }}
       className={styles.bagItemWrapper}
