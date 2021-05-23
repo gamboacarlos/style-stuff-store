@@ -57,6 +57,10 @@ const shoppingReducer = (
             )
           : [...bag, ...product]
       }
+    // Add product to shopping bag ////////////////////////////////////////////////////////////////
+    case actionTypes.SET_LOCAL_BAG:
+      const localBag = action.payload
+      return { ...state, bag: [...localBag] }
 
     // Remove product from shopping bag ///////////////////////////////////////////////////////////
     case actionTypes.REMOVE_FROM_BAG:

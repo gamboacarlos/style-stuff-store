@@ -1,4 +1,4 @@
-import { Product_int, SizeInfo_int } from "./productsTypes"
+import { BagItem_int, Product_int, SizeInfo_int } from "./productsTypes"
 
 // Loading products action type and interface ///////////////////////////////////
 export const LOADING_PRODUCTS = "LOADING_PRODUCTS"
@@ -19,6 +19,7 @@ export interface setProductsData_int {
   type: typeof SET_PRODUCTS_DATA
   payload: Product_int[]
 }
+
 // Set current product action type and interface ////////////////////////////////
 export const SET_CURRENT_PRODUCT = "SET_CURRENT_PRODUCT"
 export interface setCurrentProduct_int {
@@ -40,6 +41,12 @@ export interface addToBag_int {
     id: number
     sizeInfo: SizeInfo_int
   }
+}
+// Send shopping bag data to localStorage action type and interface ///////////////////////////////////////
+export const SET_LOCAL_BAG = "SET_LOCAL_BAG"
+export interface setLocalBag_int {
+  type: typeof SET_LOCAL_BAG
+  payload: BagItem_int[]
 }
 
 // Remove from cart action type and interface /////////////////////////////////
@@ -73,3 +80,4 @@ export type DispatchFetchAndSetProducts_type =
   | getProductsFail_int
   | addToBag_int
   | removeFromBag_int
+  | setLocalBag_int

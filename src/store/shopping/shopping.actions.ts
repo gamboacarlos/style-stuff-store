@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
-import { Product_int, SizeInfo_int } from "./productsTypes"
+import { BagItem_int, Product_int, SizeInfo_int } from "./productsTypes"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
@@ -36,6 +36,12 @@ export const addToBag = (
         size: sizeInfo.size
       }
     }
+  }
+}
+export const setLocalBag = (localItems: BagItem_int[]): actionTypes.setLocalBag_int => {
+  return {
+    type: actionTypes.SET_LOCAL_BAG,
+    payload: localItems
   }
 }
 export const removeFromBag = (id: string): actionTypes.removeFromBag_int => {

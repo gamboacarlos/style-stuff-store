@@ -1,10 +1,11 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import styles from "./Bag.module.scss"
 import { useDispatch, useSelector } from "react-redux"
 import { MainStore } from "@store/store"
 import { Button, Typography } from "@components/atoms"
 import { BagItem } from "@components/molecules"
 import { shoppingBagToggle } from "@store/UI/UI.actions"
+import { setLocalBag } from "@store/shopping/shopping.actions"
 
 const SLIDE = {
   right: 0,
@@ -13,8 +14,16 @@ const SLIDE = {
 
 const Bag: FC = () => {
   const dispatch = useDispatch()
-  const bagData = useSelector((state: MainStore) => state.shopping.bag)
+  const bag = useSelector((state: MainStore) => state.shopping.bag)
   const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
+
+  useEffect(() => {
+    const bagData = JSON.parse(localStorage.getItem("bagData") || "[]")
+    if (bagData.length >= 1) dispatch(setLocalBag(bagData))
+  }, [])
+  useEffect(() => {
+    localStorage.setItem("bagData", JSON.stringify(bag))
+  }, [bag])
 
   return (
     <div className={styles.bagWrapper} style={openShoppingBag ? SLIDE : {}}>
@@ -22,7 +31,7 @@ const Bag: FC = () => {
         <Typography variant="pTitle">SHOPPING BAG</Typography>
       </div>
       <div className={styles.bagItems}>
-        {bagData.map((prod) => {
+        {bag.map((prod) => {
           return <BagItem data={prod} key={prod.variant_id} />
         })}
       </div>
