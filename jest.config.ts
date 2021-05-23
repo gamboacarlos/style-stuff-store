@@ -76,6 +76,7 @@ export default {
       "<rootDir>/src/utils/test/fileMock.js",
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@assets/(.*)$": "<rootDir>/public/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^@store/(.*)$": "<rootDir>/src/store/$1"
   },
 
@@ -131,7 +132,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom"
+  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -164,9 +165,9 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: {
-  //   "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
-  // }
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
+  }
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

@@ -5,7 +5,11 @@ import Typography from "../../atoms/Typography/Typography"
 import styles from "./ProductCard.module.scss"
 
 interface Props {
-  [name: string]: any
+  image: string
+  id: number
+  name: string
+  price: number
+  loading?: boolean
 }
 
 const ProductCard: FC<Props> = ({ id, image, name, price }) => {

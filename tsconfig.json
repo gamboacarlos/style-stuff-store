@@ -18,6 +18,8 @@
       "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
       "resolveJsonModule": true,
       "baseUrl": ".",
+      // "declaration": true,
+      // "outDir": "dist",
     "paths": {
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
@@ -29,7 +31,8 @@
       "allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
       "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
   }
   
   
