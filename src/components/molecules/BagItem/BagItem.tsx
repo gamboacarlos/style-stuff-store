@@ -56,7 +56,7 @@ const BagItem: FC<Props> = ({ data }) => {
       </div>
       <div className={styles.bagItemInfo}>
         <Typography variant="sTitle">{data.name}</Typography>
-        <Typography variant="span">{`$${data.price}.00`}</Typography>
+        <Typography variant="span">{`€‌ ${data.price}`}</Typography>
         <Typography>{data.size}</Typography>
       </div>
       <div className={styles.itemRemoveControl}>

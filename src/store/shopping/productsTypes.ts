@@ -65,6 +65,7 @@ export interface BagItem_int {
   variant_id: string
   size: string
   qty: number
+  total: number
 }
 
 // Size info interface /////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@ import { MainStore } from "@store/store"
 import { Button, Typography } from "@components/atoms"
 import { BagItem } from "@components/molecules"
 import { shoppingBagToggle } from "@store/UI/UI.actions"
-import { setLocalBag } from "@store/shopping/shopping.actions"
+import { setBagTotal, setLocalBag } from "@store/shopping/shopping.actions"
 
 const SLIDE = {
   right: 0,
@@ -15,6 +15,7 @@ const SLIDE = {
 const Bag: FC = () => {
   const dispatch = useDispatch()
   const bag = useSelector((state: MainStore) => state.shopping.bag)
+  const total = useSelector((state: MainStore) => state.shopping.bagTotal)
   const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
 
   useEffect(() => {
@@ -23,6 +24,9 @@ const Bag: FC = () => {
   }, [])
   useEffect(() => {
     localStorage.setItem("bagData", JSON.stringify(bag))
+
+    // Set bag total price
+    dispatch(setBagTotal())
   }, [bag])
 
   return (
@@ -37,7 +41,7 @@ const Bag: FC = () => {
       </div>
       <div className={styles.bagTotal}>
         <Typography variant="pTitle">Total</Typography>
-        <Typography variant="pTitle">$235.00</Typography>
+        <Typography variant="pTitle">{`€‌ ${total}`}</Typography>
       </div>
       <div className={styles.bagMenu}>
         <Button>Checkout</Button>

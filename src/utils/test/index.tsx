@@ -6,7 +6,8 @@ export const testProductBagItem = {
   id: 8745,
   variant_id: "7845",
   size: "XL",
-  qty: 5
+  qty: 5,
+  total: 145
 }
 export const testProductCard = {
   name: "Green Overhead Jacket",

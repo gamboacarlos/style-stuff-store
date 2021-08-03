@@ -69,6 +69,11 @@ export interface decreaseQty_int {
   type: typeof DECREASE_QTY
   payload: string
 }
+// Set bag total type and interface //////////////////////////////////////
+export const SET_BAG_TOTAL = "SET_BAG_TOTAL"
+export interface setBagTotal_int {
+  type: typeof SET_BAG_TOTAL
+}
 
 // Fetch and dispatch handler type ///////////////////////////////////////////
 export type DispatchFetchAndSetProducts_type =
@@ -81,3 +86,4 @@ export type DispatchFetchAndSetProducts_type =
   | addToBag_int
   | removeFromBag_int
   | setLocalBag_int
+  | setBagTotal_int

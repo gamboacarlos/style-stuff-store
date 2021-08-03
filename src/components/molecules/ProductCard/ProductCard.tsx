@@ -18,7 +18,7 @@ const ProductCard: FC<Props> = ({ id, image, name, price }) => {
       <div className={styles.cardWrapper} key={id}>
         <img src={image} alt="image" />
         <Typography variant="sTitle">{name}</Typography>
-        <Typography variant="span">{`€‌${price}.00`}</Typography>
+        <Typography variant="span">{`€‌ ${price}`}</Typography>
       </div>
     </Link>
   )

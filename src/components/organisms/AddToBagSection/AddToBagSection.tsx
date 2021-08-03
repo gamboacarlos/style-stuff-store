@@ -26,7 +26,7 @@ const AddToBagSection: FC<Props> = ({ data }) => {
     <div className={styles.addToBagWrapper}>
       <div className={styles.infoBody}>
         <Typography variant="tTitle">{data.name.toUpperCase()}</Typography>
-        <Typography variant="span">{`€‌${data.stock_info.price}.00`}</Typography>
+        <Typography variant="span">{`€‌ ${data.stock_info.price}`}</Typography>
         <div className={styles.sizesContainer}>
           {data.sizes.map((variant) => {
             return (

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { mobileMenuToggle, shoppingBagToggle } from "@store/UI/UI.actions"
 import { MainStore } from "@store/store"
 
+// icons ///////////////////////////////////////////////////////////////////////////////
 const { menu, logo, favs, user, bag, close } = Icons
 
 const NavBar: FC = () => {

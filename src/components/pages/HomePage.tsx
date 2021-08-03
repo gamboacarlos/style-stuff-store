@@ -19,7 +19,6 @@ const HomePage: FC = () => {
 
   return (
     <>
-      <NavBar />
       <Container>
         <Hero
           mainImage={millerain}

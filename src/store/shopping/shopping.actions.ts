@@ -62,6 +62,11 @@ export const decreaseQty = (id: string): actionTypes.decreaseQty_int => {
     payload: id
   }
 }
+export const setBagTotal = (): actionTypes.setBagTotal_int => {
+  return {
+    type: actionTypes.SET_BAG_TOTAL
+  }
+}
 
 export const fetchProducts = (subCategory: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>

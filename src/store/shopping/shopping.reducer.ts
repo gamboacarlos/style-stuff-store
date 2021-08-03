@@ -4,6 +4,7 @@ import { BagItem_int, Product_int } from "./productsTypes"
 interface InitialState_int {
   products: Product_int[]
   bag: BagItem_int[]
+  bagTotal: number
   currentProduct: Product_int[]
   loading: boolean
 }
@@ -11,6 +12,7 @@ interface InitialState_int {
 const initialState: InitialState_int = {
   products: [],
   bag: [],
+  bagTotal: 0,
   currentProduct: [],
   loading: false
 }
@@ -46,7 +48,8 @@ const shoppingReducer = (
           id: prod.id,
           variant_id: variant_id,
           size: size,
-          qty: 1
+          qty: 1,
+          total: prod.stock_info.price
         }
       })
       return {
@@ -70,16 +73,28 @@ const shoppingReducer = (
     // Increase product quantity //////////////////////////////////////////////////////////////////
     case actionTypes.INCREASE_QTY:
       const prodIncrease = bag.map((prod) =>
-        prod.variant_id === action.payload ? { ...prod, qty: prod.qty + 1 } : prod
+        prod.variant_id === action.payload
+          ? { ...prod, qty: prod.qty + 1, total: prod.total + prod.price }
+          : prod
       )
       return { ...state, bag: prodIncrease }
 
     // Decrease product quantity //////////////////////////////////////////////////////////////////
     case actionTypes.DECREASE_QTY:
       const prodDecrease = bag.map((prod) =>
-        prod.variant_id === action.payload ? { ...prod, qty: prod.qty - 1 } : prod
+        prod.variant_id === action.payload
+          ? { ...prod, qty: prod.qty - 1, total: prod.total - prod.price }
+          : prod
       )
       return { ...state, bag: prodDecrease }
+
+    // Set bag total //////////////////////////////////////////////////////////////////
+    case actionTypes.SET_BAG_TOTAL:
+      const totalPrice = bag.reduce((sum, item) => {
+        const price = item.total
+        return sum + price
+      }, 0)
+      return { ...state, bagTotal: totalPrice }
 
     default:
       return state
