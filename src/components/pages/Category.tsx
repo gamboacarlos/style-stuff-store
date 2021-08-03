@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "@globals/App.module.scss"
 import { withRouter } from "react-router"
 import { FC, useEffect } from "react"
 import { ProductsListing } from "../organisms"
@@ -16,6 +15,7 @@ const Category: FC = (props: any) => {
 
   useEffect(() => {
     dispatch(fetchProducts(subcategory))
+    window.scrollTo(0, 0)
   }, [subcategory])
 
   return (

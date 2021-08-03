@@ -8,7 +8,7 @@ import { mobileMenuToggle, shoppingBagToggle } from "@store/UI/UI.actions"
 import { MainStore } from "@store/store"
 
 // icons ///////////////////////////////////////////////////////////////////////////////
-const { menu, logo, favs, user, bag, close } = Icons
+const { menu, logo, favs, bag, close } = Icons
 
 const NavBar: FC = () => {
   const dispatch = useDispatch()
@@ -45,7 +45,7 @@ const NavBar: FC = () => {
             </Link>
           </div>
           <div className={styles.navUser}>
-            <img src={user} alt="user" />
+            {/* <img src={user} alt="user" /> */}
             <img src={favs} alt="favs" />
             <img src={bag} alt="bag" onClick={handleBagToggle} />
           </div>

@@ -16,6 +16,7 @@ const ProductDetails: FC = (props: any) => {
 
   useEffect(() => {
     dispatch(fetchSingleProduct(id))
+    window.scrollTo(0, 0)
   }, [id])
 
   return (
