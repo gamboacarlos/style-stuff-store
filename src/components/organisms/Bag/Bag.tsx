@@ -49,7 +49,7 @@ const Bag: FC = () => {
           to="/bag/checkout"
           onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}
         >
-          <Button>Checkout</Button>
+          <Button disabled={bag.length === 0 ? true : false}>Checkout</Button>
         </Link>
         <Button onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}>
           Continue shopping

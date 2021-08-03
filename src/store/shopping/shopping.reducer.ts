@@ -56,7 +56,9 @@ const shoppingReducer = (
         ...state,
         bag: check
           ? bag.map((prod) =>
-              prod.variant_id === variant_id ? { ...prod, qty: prod.qty + 1 } : prod
+              prod.variant_id === variant_id
+                ? { ...prod, qty: prod.qty + 1, total: prod.total + prod.price }
+                : prod
             )
           : [...bag, ...product]
       }

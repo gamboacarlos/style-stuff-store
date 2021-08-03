@@ -14,6 +14,7 @@ const NavBar: FC = () => {
   const dispatch = useDispatch()
   const openMenu = useSelector((state: MainStore) => state.UI.mobileMenuState)
   const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
+  const shoppingBag = useSelector((state: MainStore) => state.shopping.bag)
 
   // Mobile menu toggle open/close /////////////////////////////////////////////////////
   const handleMobileToggle = () => {
@@ -47,7 +48,10 @@ const NavBar: FC = () => {
           <div className={styles.navUser}>
             {/* <img src={user} alt="user" /> */}
             <img src={favs} alt="favs" />
-            <img src={bag} alt="bag" onClick={handleBagToggle} />
+            <div className={styles.bagIconWrapper} onClick={handleBagToggle}>
+              <img src={bag} alt="bag" />
+              <span>{shoppingBag.length > 0 ? shoppingBag.length : null}</span>
+            </div>
           </div>
         </div>
         <Bag />

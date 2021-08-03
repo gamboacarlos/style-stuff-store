@@ -3,3 +3,8 @@
 .buttonWrapper {
   @include button();
 }
+.buttonWrapperDisabled {
+  @include button();
+  background-color: $grey1;
+  cursor: default;
+}
