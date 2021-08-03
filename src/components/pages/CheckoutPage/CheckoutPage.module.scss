@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.checkoutWrapper {
+    margin: 10rem auto 0 auto;
+    width: 70%;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mobile(){
+        width: 90%;
+    }
+
+}
+.checkoutTotal{
+    padding: 3rem 1rem;
+    width: 100%;
+    border-bottom: 1px solid $grey1;
+}
+.checkoutButton{
+    width: 50%;
+    margin: 3.5rem 0;
+    align-self: center;
+
+    button{
+        background-color: $grey2;
+    }
+}

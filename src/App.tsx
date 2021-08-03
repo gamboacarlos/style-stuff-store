@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import CheckoutPage from "@components/pages/CheckoutPage/CheckoutPage"
 import Layout from "@components/pages/Layout/Layout"
 import ProductDetails from "@components/pages/ProductDetails/ProductDetails"
 import { FC } from "react"
@@ -15,6 +16,7 @@ const App: FC = () => {
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category/:subcategory" component={Category} />
             <Route path="/product/details/:id" component={ProductDetails} />
+            <Route exact path="/bag/checkout" component={CheckoutPage} />
           </Switch>
         </Layout>
       </Router>

@@ -6,6 +6,7 @@ import { Button, Typography } from "@components/atoms"
 import { BagItem } from "@components/molecules"
 import { shoppingBagToggle } from "@store/UI/UI.actions"
 import { setBagTotal, setLocalBag } from "@store/shopping/shopping.actions"
+import { Link } from "react-router-dom"
 
 const SLIDE = {
   right: 0,
@@ -44,7 +45,12 @@ const Bag: FC = () => {
         <Typography variant="pTitle">{`€‌ ${total}`}</Typography>
       </div>
       <div className={styles.bagMenu}>
-        <Button>Checkout</Button>
+        <Link
+          to="/bag/checkout"
+          onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}
+        >
+          <Button>Checkout</Button>
+        </Link>
         <Button onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}>
           Continue shopping
         </Button>
