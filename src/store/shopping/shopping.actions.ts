@@ -70,7 +70,7 @@ export const setBagTotal = (): actionTypes.setBagTotal_int => {
 
 export const fetchProducts = (subCategory: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
-) => {
+): Promise<void> => {
   try {
     dispatch(loadingProducts())
     const apiCall = await fetch(
@@ -85,7 +85,7 @@ export const fetchProducts = (subCategory: string) => async (
 
 export const fetchSingleProduct = (id: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
-) => {
+): Promise<void> => {
   try {
     dispatch(loadingProducts())
     const apiCall = await fetch(`https://www.apistorecall.xyz/api/products/${id}`)
