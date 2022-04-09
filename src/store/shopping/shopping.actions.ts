@@ -76,7 +76,7 @@ export const fetchProducts = (subCategory: string) => async (
     dispatch(loadingProducts())
     const apiCall = await fetch(
       // `https://www.apistorecall.xyz/api/products/category/${subCategory}`
-      `${process.env.REACT_APP_BASE_API_URL}/category/${subCategory}`
+      `${process.env.BASE_API_URL}/category/${subCategory}`
     )
     const response = await apiCall.json()
     dispatch(setProductsData(response))
@@ -90,7 +90,7 @@ export const fetchSingleProduct = (id: string) => async (
 ): Promise<void> => {
   try {
     dispatch(loadingProducts())
-    const apiCall = await fetch(`${process.env.REACT_APP_BASE_API_URL}/${id}`)
+    const apiCall = await fetch(`${process.env.BASE_API_URL}/${id}`)
     const response = await apiCall.json()
     dispatch(setCurrentProduct(response))
   } catch (err) {
