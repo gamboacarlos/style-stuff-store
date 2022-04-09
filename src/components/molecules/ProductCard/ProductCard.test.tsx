@@ -6,10 +6,9 @@ import TestingWrapper from "@utils/test/TestingWrapper"
 import { FC } from "react"
 
 // Test ============================================================================
-test("ProductCard renders fields correctly", () => {
+test("ProductCard renders product name correctly", () => {
   const { getByText } = render(<ProductCard {...testProductCard} />, {
     wrapper: TestingWrapper as FC
   })
   getByText("Green Overhead Jacket")
-  getByText("€‌145.00")
 })
