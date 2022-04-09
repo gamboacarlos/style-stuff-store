@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
 import { BagItem_int, Product_int, SizeInfo_int } from "./productsTypes"
+import "dotenv/config"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
@@ -74,7 +75,8 @@ export const fetchProducts = (subCategory: string) => async (
   try {
     dispatch(loadingProducts())
     const apiCall = await fetch(
-      `https://www.apistorecall.xyz/api/products/category/${subCategory}`
+      // `https://www.apistorecall.xyz/api/products/category/${subCategory}`
+      `${process.env.REACT_APP_BASE_API_URL}/category/${subCategory}`
     )
     const response = await apiCall.json()
     dispatch(setProductsData(response))
@@ -88,7 +90,7 @@ export const fetchSingleProduct = (id: string) => async (
 ): Promise<void> => {
   try {
     dispatch(loadingProducts())
-    const apiCall = await fetch(`https://www.apistorecall.xyz/api/products/${id}`)
+    const apiCall = await fetch(`${process.env.REACT_APP_BASE_API_URL}/${id}`)
     const response = await apiCall.json()
     dispatch(setCurrentProduct(response))
   } catch (err) {

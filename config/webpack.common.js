@@ -2,6 +2,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const path = require("path")
+const Dotenv = require("dotenv-webpack")
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 module.exports = {
   entry: "./src/index.tsx",
   output: {
@@ -31,9 +33,14 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    fallback: {
+      fs: false
+    }
   },
   plugins: [
+    new Dotenv(),
+    new NodePolyfillPlugin(),
     new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
