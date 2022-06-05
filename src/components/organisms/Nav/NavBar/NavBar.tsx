@@ -55,7 +55,7 @@ const NavBar: FC = () => {
           </div>
           <div className={styles.navUser}>
             {/* <img src={user} alt="user" /> */}
-            <div onClick={handleGoToFavorites}>
+            <div onClick={handleGoToFavorites} style={{ cursor: "pointer" }}>
               <img src={favs} alt="favs" />
             </div>
             <div className={styles.bagIconWrapper} onClick={handleBagToggle}>
