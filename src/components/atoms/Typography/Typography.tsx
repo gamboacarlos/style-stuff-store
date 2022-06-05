@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react"
+import { CSSProperties, FC, ReactNode } from "react"
 import styles from "./Typography.module.scss"
 
 interface InLineStyles {
-  [name: string]: string | number
+  [name: string]: CSSProperties
 }
 interface Props {
   children: ReactNode
@@ -11,29 +11,20 @@ interface Props {
   testId?: string
 }
 
-const Typography: FC<Props> = ({ children, variant, subStyles, testId }) => {
-  const style = () => {
-    switch (variant) {
-      case "pTitle":
-        return styles.primaryTitle
-      case "sTitle":
-        return styles.secundaryTitle
-      case "pAnchor":
-        return styles.primaryAnchor
-      case "sAnchor":
-        return styles.secundaryAnchor
-      case "tTitle":
-        return styles.tertiaryTitle
-      case "tSubTitle":
-        return styles.tertiarySubTitle
-      case "span":
-        return styles.span
-      default:
-        return styles.paragraph
-    }
+const Typography: FC<Props> = ({ children, variant = "default", subStyles, testId }) => {
+  const typographyStyle: Record<string, string | undefined> = {
+    pTitle: styles.primaryTitle,
+    sTitle: styles.secundaryTitle,
+    pAnchor: styles.primaryAnchor,
+    sAnchor: styles.secundaryAnchor,
+    tTitle: styles.tertiaryTitle,
+    tSubTitle: styles.tertiarySubTitle,
+    span: styles.span,
+    default: styles.paragraph
   }
+
   return (
-    <p className={style()} style={subStyles} data-testid={testId}>
+    <p className={typographyStyle[variant]} style={subStyles} data-testid={testId}>
       {children}
     </p>
   )

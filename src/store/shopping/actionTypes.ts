@@ -1,4 +1,9 @@
-import { BagItem_int, Product_int, SizeInfo_int } from "./productsTypes"
+import {
+  BagItem_int,
+  Product_int,
+  SizeInfo_int,
+  FavoritesItem_int
+} from "./productsTypes"
 
 // Loading products action type and interface ///////////////////////////////////
 export const LOADING_PRODUCTS = "LOADING_PRODUCTS"
@@ -56,6 +61,28 @@ export interface removeFromBag_int {
   payload: string
 }
 
+// Add to favorites action type and interface ///////////////////////////////////////
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
+export interface addToFavorites_int {
+  type: typeof ADD_TO_FAVORITES
+  payload: {
+    id: number
+  }
+}
+// Send favorites data to localStorage action type and interface ///////////////////////////////////////
+export const SET_LOCAL_FAVORITES = "SET_LOCAL_FAVORITES"
+export interface setLocalFavorites_int {
+  type: typeof SET_LOCAL_FAVORITES
+  payload: FavoritesItem_int[]
+}
+
+// Remove from favorites action type and interface /////////////////////////////////
+export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES"
+export interface removeFromFavorites_int {
+  type: typeof REMOVE_FROM_FAVORITES
+  payload: number
+}
+
 // Increase quantity type and interface ///////////////////////////////////////
 export const INCREASE_QTY = "INCREASE_QTY"
 export interface increaseQty_int {
@@ -87,3 +114,6 @@ export type DispatchFetchAndSetProducts_type =
   | removeFromBag_int
   | setLocalBag_int
   | setBagTotal_int
+  | addToFavorites_int
+  | setLocalFavorites_int
+  | removeFromFavorites_int

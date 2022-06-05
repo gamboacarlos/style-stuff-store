@@ -47,7 +47,11 @@ const NavBar: FC = () => {
           </div>
           <div className={styles.navUser}>
             {/* <img src={user} alt="user" /> */}
-            <img src={favs} alt="favs" />
+            <div>
+              <Link to="/favorites">
+                <img src={favs} alt="favs" />
+              </Link>
+            </div>
             <div className={styles.bagIconWrapper} onClick={handleBagToggle}>
               <img src={bag} alt="bag" />
               <span>{shoppingBag.length > 0 ? shoppingBag.length : null}</span>

@@ -1,9 +1,10 @@
 import * as actionTypes from "./actionTypes"
-import { BagItem_int, Product_int } from "./productsTypes"
+import { BagItem_int, Product_int, FavoritesItem_int } from "./productsTypes"
 
 interface InitialState_int {
   products: Product_int[]
   bag: BagItem_int[]
+  favorites: FavoritesItem_int[]
   bagTotal: number
   currentProduct: Product_int[]
   loading: boolean
@@ -12,6 +13,7 @@ interface InitialState_int {
 const initialState: InitialState_int = {
   products: [],
   bag: [],
+  favorites: [],
   bagTotal: 0,
   currentProduct: [],
   loading: false
@@ -21,7 +23,7 @@ const shoppingReducer = (
   state = initialState,
   action: actionTypes.DispatchFetchAndSetProducts_type
 ): InitialState_int => {
-  const { bag, currentProduct } = state
+  const { bag, currentProduct, favorites } = state
 
   switch (action.type) {
     // Set loading state true /////////////////////////////////////////////////////////////////////
@@ -62,7 +64,8 @@ const shoppingReducer = (
             )
           : [...bag, ...product]
       }
-    // Add product to shopping bag ////////////////////////////////////////////////////////////////
+
+    // Add bag products to Local Storage ////////////////////////////////////////////////////////////////
     case actionTypes.SET_LOCAL_BAG:
       const localBag = action.payload
       return { ...state, bag: [...localBag] }
@@ -71,6 +74,33 @@ const shoppingReducer = (
     case actionTypes.REMOVE_FROM_BAG:
       const bagFiltered = bag.filter((prod) => prod.variant_id != action.payload)
       return { ...state, bag: bagFiltered }
+
+    // Add product to favorites ////////////////////////////////////////////////////////////////
+    case actionTypes.ADD_TO_FAVORITES:
+      const { id } = action.payload
+      const checkFavorite = favorites.find((prod) => prod.id === id)
+      const favorite = currentProduct.map((prod) => {
+        return {
+          name: prod.name,
+          price: prod.stock_info.price,
+          images: prod.product_images,
+          id: prod.id
+        }
+      })
+      return {
+        ...state,
+        favorites: checkFavorite ? favorites : [...favorites, ...favorite]
+      }
+
+    // Remove product from favorites ///////////////////////////////////////////////////////////
+    case actionTypes.REMOVE_FROM_FAVORITES:
+      const favoritesFiltered = favorites.filter((fav) => fav.id !== action.payload)
+      return { ...state, favorites: favoritesFiltered }
+
+    // Add favorites to Local Storage ////////////////////////////////////////////////////////////////
+    case actionTypes.SET_LOCAL_FAVORITES:
+      const localFavorites = action.payload
+      return { ...state, favorites: [...localFavorites] }
 
     // Increase product quantity //////////////////////////////////////////////////////////////////
     case actionTypes.INCREASE_QTY:

@@ -6,7 +6,7 @@ import { FC, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import styles from "./AddToBagSection.module.scss"
 import { MainStore } from "@store/store"
-import { addToBag } from "@store/shopping/shopping.actions"
+import { addToBag, addToFavorites } from "@store/shopping/shopping.actions"
 
 interface Props {
   data: Product_int
@@ -45,9 +45,17 @@ const AddToBagSection: FC<Props> = ({ data }) => {
             )
           })}
         </div>
-        <Button onClick={() => dispatch(addToBag(data.id, sizeSelectorState))}>
-          Add to bag
-        </Button>
+        <div>
+          <Button
+            onClick={() => dispatch(addToBag(data.id, sizeSelectorState))}
+            style={{ marginBottom: "12px" }}
+          >
+            Add to bag
+          </Button>
+          <Button variant="secondary" onClick={() => dispatch(addToFavorites(data.id))}>
+            Add to favorites
+          </Button>
+        </div>
         <DeliveryInfo />
       </div>
     </div>

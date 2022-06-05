@@ -46,11 +46,19 @@ const BagItem: FC<Props> = ({ data }) => {
         <img src={data.image} alt="image" />
       </Link>
       <div className={styles.itemQtyControls}>
-        <button type="button" onClick={() => handleIncrease(data.variant_id)}>
+        <button
+          type="button"
+          style={{ cursor: "pointer" }}
+          onClick={() => handleIncrease(data.variant_id)}
+        >
           +
         </button>
         <Typography>{data.qty}</Typography>
-        <button type="button" onClick={() => handleDecrease(data.variant_id)}>
+        <button
+          type="button"
+          style={{ cursor: "pointer" }}
+          onClick={() => handleDecrease(data.variant_id)}
+        >
           -
         </button>
       </div>

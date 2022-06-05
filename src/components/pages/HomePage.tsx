@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react"
-import { NavBar, ProductsListing } from "@components/organisms"
+import { ProductsListing } from "@components/organisms"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchProducts } from "@store/shopping/shopping.actions"
 import { MainStore } from "@store/store"

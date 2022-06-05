@@ -1,0 +1,60 @@
+@import "variables.scss";
+
+.favoriteWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid $grey1;
+  width: 100%;
+  height: 200px;
+}
+.favoriteInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 20px;
+  width: 50%;
+  height: 100%;
+
+  p:first-child {
+    margin-bottom: 10px;
+  }
+}
+.thumbnailGrid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1.5fr));
+  width: 205px;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-areas:
+    "main main mini1"
+    "main main mini2";
+}
+.main {
+  height: 100%;
+  grid-area: main;
+  object-fit: contain;
+}
+.mini1 {
+  height: 100%;
+  grid-area: mini1;
+}
+.mini2 {
+  height: 100%;
+  grid-area: mini2;
+}
+.favoriteRemoveControl {
+  width: 1.2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+
+  img {
+    width: 1.1rem;
+  }
+}

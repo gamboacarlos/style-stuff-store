@@ -23,13 +23,13 @@
   text-align: center;
   border-bottom: 1px solid $grey1;
 }
-.bagItems{
+.bagItems {
   height: 50vh;
   overflow-y: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
-.bagTotal{
+.bagTotal {
   height: 8rem;
   width: 100%;
   display: flex;
@@ -38,14 +38,6 @@
   border-top: 1px solid $grey1;
   border-bottom: 1px solid $grey1;
 }
-.bagMenu{
+.bagMenu {
   padding: 7rem 0;
-
-  button:nth-child(2){
-    background-color: white;
-    border: 1px solid $black;
-    margin-top: 2rem;
-    color: $black;
-  }
 }
-

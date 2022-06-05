@@ -1,7 +1,14 @@
 @import "variables.scss";
 
-.buttonWrapper {
+.primayButtonWrapper {
   @include button();
+}
+.secondaryButtonWrapper {
+  @include button();
+  background-color: #ffffff;
+  border-style: solid;
+  border: 1px solid $black;
+  color: $black;
 }
 .buttonWrapperDisabled {
   @include button();

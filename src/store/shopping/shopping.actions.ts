@@ -1,6 +1,11 @@
 import * as actionTypes from "./actionTypes"
 import { Dispatch } from "redux"
-import { BagItem_int, Product_int, SizeInfo_int } from "./productsTypes"
+import {
+  BagItem_int,
+  Product_int,
+  SizeInfo_int,
+  FavoritesItem_int
+} from "./productsTypes"
 import "dotenv/config"
 
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
@@ -51,6 +56,28 @@ export const removeFromBag = (id: string): actionTypes.removeFromBag_int => {
     payload: id
   }
 }
+export const addToFavorites = (id: number): actionTypes.addToFavorites_int => {
+  return {
+    type: actionTypes.ADD_TO_FAVORITES,
+    payload: {
+      id: id
+    }
+  }
+}
+export const setLocalFavorites = (
+  localItems: FavoritesItem_int[]
+): actionTypes.setLocalFavorites_int => {
+  return {
+    type: actionTypes.SET_LOCAL_FAVORITES,
+    payload: localItems
+  }
+}
+export const removeFromFavorites = (id: number): actionTypes.removeFromFavorites_int => {
+  return {
+    type: actionTypes.REMOVE_FROM_FAVORITES,
+    payload: id
+  }
+}
 export const increaseQty = (id: string): actionTypes.increaseQty_int => {
   return {
     type: actionTypes.INCREASE_QTY,
@@ -74,10 +101,7 @@ export const fetchProducts = (subCategory: string) => async (
 ): Promise<void> => {
   try {
     dispatch(loadingProducts())
-    const apiCall = await fetch(
-      // `https://www.apistorecall.xyz/api/products/category/${subCategory}`
-      `${process.env.BASE_API_URL}/category/${subCategory}`
-    )
+    const apiCall = await fetch(`${process.env.BASE_API_URL}/category/${subCategory}`)
     const response = await apiCall.json()
     dispatch(setProductsData(response))
   } catch (err) {

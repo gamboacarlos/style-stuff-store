@@ -68,6 +68,14 @@ export interface BagItem_int {
   total: number
 }
 
+// Favorites interface /////////////////////////////////////////////////////////////////
+export interface FavoritesItem_int {
+  name: string
+  price: number
+  id: number
+  images: ProductImages_type
+}
+
 // Size info interface /////////////////////////////////////////////////////////////////
 export interface SizeInfo_int {
   variant_id: string

@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import "variables.scss";
 
 .addToBagWrapper {
   position: relative;
@@ -11,7 +11,7 @@
   position: sticky;
   right: calc(25% + (100vw - 1440px) / 4);
   transform: translate(-30%);
-  top: 12%;
+  top: 8%;
   width: 40rem;
   height: 80rem;
   margin: 0 auto;
