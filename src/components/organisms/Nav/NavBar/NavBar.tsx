@@ -5,12 +5,14 @@ import { NavMobileMenu, NavMenu, Bag } from "@components/organisms"
 import { Icons } from "@components/atoms"
 import { useSelector, useDispatch } from "react-redux"
 import { mobileMenuToggle, shoppingBagToggle } from "@store/UI/UI.actions"
+import { useHistory } from "react-router-dom"
 import { MainStore } from "@store/store"
 
 // icons ///////////////////////////////////////////////////////////////////////////////
 const { menu, logo, favs, bag, close } = Icons
 
 const NavBar: FC = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const openMenu = useSelector((state: MainStore) => state.UI.mobileMenuState)
   const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
@@ -26,6 +28,12 @@ const NavBar: FC = () => {
   const handleBagToggle = () => {
     dispatch(mobileMenuToggle(false))
     dispatch(shoppingBagToggle(!openShoppingBag))
+  }
+
+  const handleGoToFavorites = () => {
+    dispatch(mobileMenuToggle(false))
+    dispatch(shoppingBagToggle(false))
+    history.push("/favorites")
   }
 
   return (
@@ -47,10 +55,8 @@ const NavBar: FC = () => {
           </div>
           <div className={styles.navUser}>
             {/* <img src={user} alt="user" /> */}
-            <div>
-              <Link to="/favorites">
-                <img src={favs} alt="favs" />
-              </Link>
+            <div onClick={handleGoToFavorites}>
+              <img src={favs} alt="favs" />
             </div>
             <div className={styles.bagIconWrapper} onClick={handleBagToggle}>
               <img src={bag} alt="bag" />
