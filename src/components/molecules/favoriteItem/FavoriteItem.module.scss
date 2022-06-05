@@ -25,25 +25,23 @@
 .thumbnailGrid {
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1.5fr));
-  width: 205px;
-  grid-template-rows: 1fr 1fr;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
   grid-gap: 10px;
   grid-template-areas:
     "main main mini1"
     "main main mini2";
 }
 .main {
-  height: 100%;
+  height: 180px;
   grid-area: main;
-  object-fit: contain;
 }
 .mini1 {
-  height: 100%;
+  height: 85px;
   grid-area: mini1;
 }
 .mini2 {
-  height: 100%;
+  height: 85px;
   grid-area: mini2;
 }
 .favoriteRemoveControl {
