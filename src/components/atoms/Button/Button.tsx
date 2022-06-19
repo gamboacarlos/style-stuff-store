@@ -9,6 +9,10 @@ interface Props {
   style?: CSSProperties
 }
 
+interface VariantStyles {
+  [index: string]: string | undefined
+}
+
 const Button: FC<Props> = ({
   children,
   onClick,
@@ -16,7 +20,7 @@ const Button: FC<Props> = ({
   style,
   variant = "primary"
 }) => {
-  const variantStyles: any = {
+  const variantStyles: VariantStyles = {
     primary: styles.primayButtonWrapper,
     secondary: styles.secondaryButtonWrapper
   }

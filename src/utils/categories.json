@@ -3,29 +3,26 @@
     "label": "OUTERWEAR",
     "id": 21547,
     "link": "/category/outerwear",
-    "featured":[
+    "featured": [
       {
         "id": 88167,
-        "name":"Lomas Oversized Hooded Parka",
+        "name": "Lomas Oversized Hooded Parka",
         "category_name": "Parka",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-C9GMU11000274-Green-2-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 91747,
-        "name":"Blakely Oversized Overhead Jacket",
+        "name": "Blakely Oversized Overhead Jacket",
         "category_name": "Overhead Jackets",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-G20Q4MUOUT391-Navy-6-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 93527,
-        "name":"Seam Sealed Overhead Jacket",
+        "name": "Seam Sealed Overhead Jacket",
         "category_name": "Weatherproof Jackets",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q1MUOUT405-ORANGE-01-thumbnail-400x400-70.jpg"
-
       }
-      ],
+    ],
     "subCategories": [
       {
         "id": 3211,
@@ -58,29 +55,26 @@
     "label": "TOPS",
     "id": 21548,
     "link": "/category/tops",
-    "featured":[
+    "featured": [
       {
         "id": 93770,
-        "name":"Layford Garment Dyed Bomber",
+        "name": "Layford Garment Dyed Bomber",
         "category_name": "T-shirts",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q1MUJER365-BLUE-02-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 93383,
-        "name":"Black Rourke Polo Shirt",
+        "name": "Black Rourke Polo Shirt",
         "category_name": "Polos",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q2MUPOL433-BLACK-02-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 80669,
-        "name":"Crew Neck Knitted Jumper",
+        "name": "Crew Neck Knitted Jumper",
         "category_name": "Knitwears",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-S20MU12000009-Orange-1-thumbnail-400x400-70.jpg"
-
       }
-      ],
+    ],
     "subCategories": [
       {
         "id": 3217,
@@ -118,29 +112,26 @@
     "label": "LEGWEAR",
     "id": 21549,
     "link": "/category/legwear",
-    "featured":[
+    "featured": [
       {
         "id": 93232,
-        "name":"Erwood Slim Fit",
+        "name": "Erwood Slim Fit",
         "category_name": "Jeans",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q1MULEG392-LTBLU-03-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 90222,
-        "name":"Stone 5 Pocket Slim",
+        "name": "Stone 5 Pocket Slim",
         "category_name": "Trousers",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-G20Q2MULEG298-Stone-1-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 90018,
-        "name":"Pink Sweat Short",
+        "name": "Pink Sweat Short",
         "category_name": "Shorts",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-G20Q2MUSHO047-Pink-1-thumbnail-400x400-70.jpg"
-
       }
-      ],
+    ],
     "subCategories": [
       {
         "id": 32114,
@@ -163,29 +154,26 @@
     "label": "ACCESSORIES",
     "id": 21541,
     "link": "/category/accessories",
-    "featured":[
+    "featured": [
       {
         "id": 93689,
-        "name":"Tan Square Frame Acetate",
+        "name": "Tan Square Frame Acetate",
         "category_name": "Sunglasses",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q2MUACC565-TAN-02-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 93766,
-        "name":"Navy Denim Bucket Hat",
+        "name": "Navy Denim Bucket Hat",
         "category_name": "Hats",
         "image": "https://www.prettygreen.com/media/__sized__/products/G21Q1MUACC388-NAVY-01-thumbnail-400x400-70.jpg"
-
       },
       {
         "id": 91804,
-        "name":"Silver Elvis TCB",
+        "name": "Silver Elvis TCB",
         "category_name": "Keyrings",
         "image": "https://www.prettygreen.com/media/__sized__/products/2021-G20Q3MUACC0191-Silver-1-thumbnail-400x400-70.jpg"
-
       }
-      ],
+    ],
     "subCategories": [
       {
         "id": 32117,
