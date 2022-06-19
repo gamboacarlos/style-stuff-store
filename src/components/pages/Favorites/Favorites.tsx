@@ -3,7 +3,7 @@ import React, { FC, useEffect } from "react"
 import styles from "./Favorites.module.scss"
 import { useSelector } from "react-redux"
 import { MainStore } from "@store/store"
-import FavoriteItem from "@components/molecules/favoriteItem/FavoriteItem"
+import FavoriteItem from "@components/molecules/FavoriteItem/FavoriteItem"
 import { useHistory } from "react-router-dom"
 
 const Favorites: FC = () => {
