@@ -16,5 +16,6 @@ test("Button renders onClick prop correctly", () => {
   const button = screen.getByTestId("button")
   fireEvent.click(button)
   fireEvent.click(button)
+  fireEvent.click(button)
   expect(mockHandler).toHaveBeenCalledTimes(2)
 })
