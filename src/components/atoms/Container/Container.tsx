@@ -8,7 +8,11 @@ interface Props {
 
 const Container: FC<Props> = ({ children, marginTop }) => {
   return (
-    <div className={styles.containerWrapper} style={{ marginTop: `${marginTop}` }}>
+    <div
+      className={styles.containerWrapper}
+      style={{ marginTop: `${marginTop}` }}
+      data-testid="main-container"
+    >
       {children}
     </div>
   )

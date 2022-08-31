@@ -1,16 +1,16 @@
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import { BagItem } from "@components/molecules"
-import TestingWrapper from "@utils/test/TestingWrapper"
+import { TestWrapper } from "@utils/test/index"
 import { FC } from "react"
 import { testProductBagItem } from "@utils/test"
 
 // Test ============================================================================
-test("BagItem component renders name, size and quantity correctly", () => {
-  const { getByText } = render(<BagItem data={testProductBagItem} />, {
-    wrapper: TestingWrapper as FC
+test("BagItem should render the passed name, size and quantity", () => {
+  render(<BagItem data={testProductBagItem} />, {
+    wrapper: TestWrapper as FC
   })
-  getByText("Green Overhead Jacket")
-  getByText("XL")
-  getByText("5")
+  screen.getByText(testProductBagItem.name)
+  screen.getByText(testProductBagItem.size)
+  screen.getByText(testProductBagItem.qty)
 })

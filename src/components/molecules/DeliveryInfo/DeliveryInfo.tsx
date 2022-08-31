@@ -15,7 +15,7 @@ const DeliveryInfo: FC = () => {
       </div>
       <div className={styles.infoParagraph}>
         <Typography variant="sTitle">Express Delivery</Typography>
-        <Typography>2-3 day delivery in Europ from €12</Typography>
+        <Typography>2-3 day delivery in Europe from €12</Typography>
       </div>
       <div className={styles.infoParagraph}>
         <Typography variant="sTitle">Flat Rate Returns</Typography>

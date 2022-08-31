@@ -13,7 +13,7 @@ interface Props {
 const ProductCard: FC<Props> = ({ id, image, name, price }) => {
   return (
     <Link to={`/product/details/${id}`}>
-      <div className={styles.cardWrapper} key={id}>
+      <div className={styles.cardWrapper} key={id} data-testid="prod-card">
         <img src={image} alt="image" />
         <Typography variant="sTitle">{name}</Typography>
         <Typography variant="span">{`€‌ ${price}`}</Typography>
