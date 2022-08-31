@@ -22,7 +22,7 @@ import {
 // Select states ==============================================================================
 const useShoppingReducer = () => {
   const dispatch = useDispatch()
-  const { products, bag, favorites, bagTotal, currentProduct, loading } = useSelector(
+  const { products, bag, favorites, bagTotal, currentProduct } = useSelector(
     (state: MainStore) => state.shopping
   )
 
@@ -69,7 +69,6 @@ const useShoppingReducer = () => {
     favorites,
     bagTotal,
     currentProduct,
-    loading,
     handleDispatchFetchProducts,
     handleDispatchFetchSingleProduct,
     handleDispatchSetLocalBag,

@@ -16,7 +16,11 @@ const SLIDE = {
 
 const NavMobileMenu: FC<Props> = ({ openMenu, handleClick }) => {
   return (
-    <div className={styles.navSlideMobileMenu} style={openMenu ? SLIDE : {}}>
+    <div
+      className={styles.navSlideMobileMenu}
+      style={openMenu ? SLIDE : {}}
+      data-testid="mobile-nav-menu"
+    >
       {categories.map((category) => {
         return (
           <div key={category.id} className={styles.mobileMenuAccordionContainer}>

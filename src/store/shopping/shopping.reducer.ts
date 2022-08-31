@@ -7,16 +7,14 @@ interface InitialState_int {
   favorites: FavoritesItem_int[]
   bagTotal: number
   currentProduct: Product_int[]
-  loading: boolean
 }
 
-const initialState: InitialState_int = {
+export const initialState: InitialState_int = {
   products: [],
   bag: [],
   favorites: [],
   bagTotal: 0,
-  currentProduct: [],
-  loading: false
+  currentProduct: []
 }
 
 const shoppingReducer = (
@@ -26,17 +24,13 @@ const shoppingReducer = (
   const { bag, currentProduct, favorites } = state
 
   switch (action.type) {
-    // Set loading state true ============================================================================
-    case actionTypes.LOADING_PRODUCTS:
-      return { ...state, loading: true }
-
     // Add products data to products state ===============================================================
     case actionTypes.SET_PRODUCTS_DATA:
-      return { ...state, products: action.payload, loading: false }
+      return { ...state, products: action.payload }
 
     // Set current product in view data to current product state =========================================
     case actionTypes.SET_CURRENT_PRODUCT:
-      return { ...state, currentProduct: action.payload, loading: false }
+      return { ...state, currentProduct: action.payload }
 
     // Add product to shopping bag =======================================================================
     case actionTypes.ADD_TO_BAG:

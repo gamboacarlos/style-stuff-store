@@ -45,12 +45,14 @@ const NavBar: FC = () => {
                 history.push("/favorites")
               }}
               style={{ cursor: "pointer" }}
+              data-testid="fav-link"
             >
               <img src={favs} alt="favs" />
             </div>
             <div
               className={styles.bagIconWrapper}
               onClick={handleDispatchMobileBagToggle}
+              data-testid="bag-button"
             >
               <img src={bag} alt="bag" />
               <span>{shoppingBag.length > 0 ? shoppingBag.length : null}</span>

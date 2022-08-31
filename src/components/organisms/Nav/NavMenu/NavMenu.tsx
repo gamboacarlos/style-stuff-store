@@ -7,7 +7,7 @@ import { Featured } from "@components/molecules"
 
 const NavMenu: FC = () => {
   return (
-    <div className={styles.navMenuWrapper}>
+    <div className={styles.navMenuWrapper} data-testid="nav-menu">
       {categories.map((cat) => {
         return (
           <div className={styles.navDropDownContainer} key={cat.id}>

@@ -8,12 +8,6 @@ import {
 } from "./productsTypes"
 import "dotenv/config"
 
-// Set loading products action ======================================================================
-export const loadingProducts = (): actionTypes.loadingProducts_int => {
-  return {
-    type: actionTypes.LOADING_PRODUCTS
-  }
-}
 // Set products data action =========================================================================
 export const setProductsData = (
   products: Product_int[]
@@ -113,7 +107,6 @@ export const fetchProducts = (subCategory: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
 ): Promise<void> => {
   try {
-    dispatch(loadingProducts())
     const apiCall = await fetch(`${process.env.BASE_API_URL}/category/${subCategory}`)
     const response = await apiCall.json()
     dispatch(setProductsData(response))
@@ -127,7 +120,6 @@ export const fetchSingleProduct = (id: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
 ): Promise<void> => {
   try {
-    dispatch(loadingProducts())
     const apiCall = await fetch(`${process.env.BASE_API_URL}/${id}`)
     const response = await apiCall.json()
     dispatch(setCurrentProduct(response))

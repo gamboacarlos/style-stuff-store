@@ -5,12 +5,6 @@ import {
   FavoritesItem_int
 } from "./productsTypes"
 
-// Loading products action type and interface =========================================
-export const LOADING_PRODUCTS = "LOADING_PRODUCTS"
-export interface loadingProducts_int {
-  type: typeof LOADING_PRODUCTS
-}
-
 // Fetch data action type and interface ===============================================
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS"
 export interface fetchProducts_int {
@@ -104,7 +98,6 @@ export interface setBagTotal_int {
 
 // Fetch and dispatch handler type ====================================================
 export type DispatchFetchAndSetProducts_type =
-  | loadingProducts_int
   | setProductsData_int
   | setCurrentProduct_int
   | increaseQty_int

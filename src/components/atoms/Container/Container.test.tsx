@@ -3,13 +3,13 @@ import { ProductsListing } from "@components/organisms"
 import "@testing-library/jest-dom"
 import { TestWrapper } from "@utils/test"
 import Container from "./Container"
-import data from "@utils/test/productListingTestProducts.json"
 import { render, screen } from "@testing-library/react"
+import { productListingTestData } from "@utils/test/productListingTestData"
 
 test("container should receive children element properly", () => {
   render(
     <Container>
-      <ProductsListing data={data} />
+      <ProductsListing data={productListingTestData} />
     </Container>,
     { wrapper: TestWrapper as FC }
   )

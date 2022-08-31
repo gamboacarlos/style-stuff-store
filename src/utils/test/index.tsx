@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react"
 import { Provider } from "react-redux"
 import { BrowserRouter as Router } from "react-router-dom"
 
-const store = mainStore
+export const store = mainStore
 export const TestWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Router>
