@@ -1,4 +1,4 @@
-// Product elements types /////////////////////////////////////////////////////////////////
+// Product elements types =============================================================
 export type ProductInfo_type = {
   id: number
   name: string
@@ -42,7 +42,7 @@ export type ProductStockInfo_type = {
   price: number
 }
 
-// Product interface /////////////////////////////////////////////////////////////////
+// Product interface ==================================================================
 export interface Product_int {
   id: number
   name: string
@@ -56,7 +56,7 @@ export interface Product_int {
   stock_info: ProductStockInfo_type
 }
 
-// Shopping Bag interface /////////////////////////////////////////////////////////////////
+// Shopping Bag interface =============================================================
 export interface BagItem_int {
   name: string
   price: number
@@ -68,7 +68,7 @@ export interface BagItem_int {
   total: number
 }
 
-// Favorites interface /////////////////////////////////////////////////////////////////
+// Favorites interface =================================================================
 export interface FavoritesItem_int {
   name: string
   price: number
@@ -76,7 +76,7 @@ export interface FavoritesItem_int {
   images: ProductImages_type
 }
 
-// Size info interface /////////////////////////////////////////////////////////////////
+// Size info interface =================================================================
 export interface SizeInfo_int {
   variant_id: string
   size: string

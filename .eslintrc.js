@@ -36,7 +36,8 @@ module.exports = {
     "react/prop-types": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "0ff",
+    // "@typescript-eslint/no-var-requires": "off",
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "never"]

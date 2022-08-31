@@ -29,7 +29,8 @@
           "@globals": "./src/globalStyles",
           "@assets": "./public",
           "@store": "./src/store",
-          "@interfaces": "./src/interfaces"
+          "@interfaces": "./src/interfaces",
+          "@hooks": "./src/hooks"
         }
       }
     ],

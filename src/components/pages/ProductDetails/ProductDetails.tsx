@@ -1,31 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useEffect } from "react"
-import { withRouter } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
-import { MainStore } from "@store/store"
-import { fetchSingleProduct } from "@store/shopping/shopping.actions"
+import { RouteComponentProps, withRouter } from "react-router-dom"
 import { Container } from "@components/atoms"
 import { ImageGallery } from "@components/molecules"
 import { AddToBagSection } from "@components/organisms"
 import styles from "./ProductDetails.module.scss"
+import { MatchParams } from "src/types/commonTypes"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 
-const ProductDetails: FC = (props: any) => {
-  const { id } = props.match.params
-  const dispatch = useDispatch()
-  const data = useSelector((state: MainStore) => state.shopping.currentProduct)
-
+const ProductDetails: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
+  // Hooks ===========================================================================
+  const { handleDispatchFetchSingleProduct, currentProduct } = useShoppingReducer()
+  const { id } = match.params
   useEffect(() => {
-    dispatch(fetchSingleProduct(id))
+    handleDispatchFetchSingleProduct(id)
     window.scrollTo(0, 0)
   }, [id])
 
   return (
     <Container marginTop="7rem">
-      {data.map((product) => {
+      {currentProduct.map((prod) => {
         return (
-          <div className={styles.ProductInfoWrapper} key={product.id}>
-            <ImageGallery images={product.product_images} />
-            <AddToBagSection data={product} />
+          <div className={styles.ProductInfoWrapper} key={prod.id}>
+            <ImageGallery images={prod.product_images} />
+            <AddToBagSection data={prod} />
           </div>
         )
       })}

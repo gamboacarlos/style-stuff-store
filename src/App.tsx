@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import CheckoutPage from "@components/pages/CheckoutPage/CheckoutPage"
 import Layout from "@components/organisms/Layout/Layout"
 import ProductDetails from "@components/pages/ProductDetails/ProductDetails"

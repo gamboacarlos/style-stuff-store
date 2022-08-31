@@ -1,47 +1,46 @@
 import { FC, useEffect } from "react"
-import styles from "./Bag.module.scss"
-import { useDispatch, useSelector } from "react-redux"
-import { MainStore } from "@store/store"
+import useShoppingReducer from "@hooks/useShoppingReducer"
+import useUIReducer from "@hooks/useUIReducer"
 import { Button, Typography } from "@components/atoms"
 import { BagItem } from "@components/molecules"
-import { shoppingBagToggle } from "@store/UI/UI.actions"
-import {
-  setBagTotal,
-  setLocalBag,
-  setLocalFavorites
-} from "@store/shopping/shopping.actions"
 import { Link } from "react-router-dom"
-
-const SLIDE = {
-  right: 0,
-  transition: "350ms"
-}
+import styles from "./Bag.module.scss"
 
 const Bag: FC = () => {
-  const dispatch = useDispatch()
-  const bag = useSelector((state: MainStore) => state.shopping.bag)
-  const favorites = useSelector((state: MainStore) => state.shopping.favorites)
-  const total = useSelector((state: MainStore) => state.shopping.bagTotal)
-  const openShoppingBag = useSelector((state: MainStore) => state.UI.shoppingBagState)
+  // Hooks =================================================================================
+  const { shoppingBagState, handleDispatchShoppingBagToggle } = useUIReducer()
+  const {
+    bag,
+    favorites,
+    bagTotal,
+    handleDispatchSetLocalBag,
+    handleDispatchSetLocalFavorites,
+    handleDispatchSetBagTotal
+  } = useShoppingReducer()
 
+  // Constatnts ==============================================================================
+  const SLIDE = {
+    right: 0,
+    transition: "350ms"
+  }
+  const bagData = JSON.parse(localStorage.getItem("bagData") || "[]")
+  const favoritesData = JSON.parse(localStorage.getItem("favoritesData") || "[]")
+
+  // Effects =================================================================================
   useEffect(() => {
-    const bagData = JSON.parse(localStorage.getItem("bagData") || "[]")
-    const favoritesData = JSON.parse(localStorage.getItem("favoritesData") || "[]")
-    if (bagData.length >= 1) dispatch(setLocalBag(bagData))
-    if (favoritesData.length >= 1) dispatch(setLocalFavorites(favoritesData))
+    if (bagData.length >= 1) handleDispatchSetLocalBag(bagData)
+    if (favoritesData.length >= 1) handleDispatchSetLocalFavorites(favoritesData)
   }, [])
   useEffect(() => {
     localStorage.setItem("bagData", JSON.stringify(bag))
-
-    // Set bag total price
-    dispatch(setBagTotal())
+    handleDispatchSetBagTotal() // Set bag total price
   }, [bag])
   useEffect(() => {
     localStorage.setItem("favoritesData", JSON.stringify(favorites))
   }, [favorites])
 
   return (
-    <div className={styles.bagWrapper} style={openShoppingBag ? SLIDE : {}}>
+    <div className={styles.bagWrapper} style={shoppingBagState ? SLIDE : {}}>
       <div className={styles.bagTitle}>
         <Typography variant="pTitle">SHOPPING BAG</Typography>
       </div>
@@ -52,19 +51,19 @@ const Bag: FC = () => {
       </div>
       <div className={styles.bagTotal}>
         <Typography variant="pTitle">Total</Typography>
-        <Typography variant="pTitle">{`€‌ ${total}`}</Typography>
+        <Typography variant="pTitle">{`€‌ ${bagTotal}`}</Typography>
       </div>
       <div className={styles.bagMenu}>
         <Link
           to="/bag/checkout"
-          onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}
+          onClick={() => handleDispatchShoppingBagToggle(!shoppingBagState)}
         >
           <Button disabled={bag.length === 0 ? true : false}>Checkout</Button>
         </Link>
         <Button
           variant="secondary"
           style={{ marginTop: "2rem" }}
-          onClick={() => dispatch(shoppingBagToggle(!openShoppingBag))}
+          onClick={() => handleDispatchShoppingBagToggle(!shoppingBagState)}
         >
           Continue shopping
         </Button>

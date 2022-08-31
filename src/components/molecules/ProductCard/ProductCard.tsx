@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC } from "react"
 import { Link } from "react-router-dom"
 import Typography from "../../atoms/Typography/Typography"
@@ -9,7 +8,6 @@ interface Props {
   id: number
   name: string
   price: number
-  loading?: boolean
 }
 
 const ProductCard: FC<Props> = ({ id, image, name, price }) => {

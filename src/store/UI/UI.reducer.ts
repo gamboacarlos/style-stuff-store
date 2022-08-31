@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as actionTypes from "./actionTypes"
 
 interface InitialState {

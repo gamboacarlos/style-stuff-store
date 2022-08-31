@@ -26,19 +26,19 @@ const shoppingReducer = (
   const { bag, currentProduct, favorites } = state
 
   switch (action.type) {
-    // Set loading state true /////////////////////////////////////////////////////////////////////
+    // Set loading state true ============================================================================
     case actionTypes.LOADING_PRODUCTS:
       return { ...state, loading: true }
 
-    // Add products data to products state ////////////////////////////////////////////////////////
+    // Add products data to products state ===============================================================
     case actionTypes.SET_PRODUCTS_DATA:
       return { ...state, products: action.payload, loading: false }
 
-    // Set current product in view data to current product state //////////////////////////////////
+    // Set current product in view data to current product state =========================================
     case actionTypes.SET_CURRENT_PRODUCT:
       return { ...state, currentProduct: action.payload, loading: false }
 
-    // Add product to shopping bag ////////////////////////////////////////////////////////////////
+    // Add product to shopping bag =======================================================================
     case actionTypes.ADD_TO_BAG:
       const { size, variant_id } = action.payload.sizeInfo
       const check = bag.find((prod) => prod.variant_id === variant_id)
@@ -65,17 +65,17 @@ const shoppingReducer = (
           : [...bag, ...product]
       }
 
-    // Add bag products to Local Storage ////////////////////////////////////////////////////////////////
+    // Add bag products to Local Storage ================================================================
     case actionTypes.SET_LOCAL_BAG:
       const localBag = action.payload
       return { ...state, bag: [...localBag] }
 
-    // Remove product from shopping bag ///////////////////////////////////////////////////////////
+    // Remove product from shopping bag =================================================================
     case actionTypes.REMOVE_FROM_BAG:
       const bagFiltered = bag.filter((prod) => prod.variant_id != action.payload)
       return { ...state, bag: bagFiltered }
 
-    // Add product to favorites ////////////////////////////////////////////////////////////////
+    // Add product to favorites =========================================================================
     case actionTypes.ADD_TO_FAVORITES:
       const { id } = action.payload
       const checkFavorite = favorites.find((prod) => prod.id === id)
@@ -92,17 +92,17 @@ const shoppingReducer = (
         favorites: checkFavorite ? favorites : [...favorites, ...favorite]
       }
 
-    // Remove product from favorites ///////////////////////////////////////////////////////////
+    // Remove product from favorites ====================================================================
     case actionTypes.REMOVE_FROM_FAVORITES:
       const favoritesFiltered = favorites.filter((fav) => fav.id !== action.payload)
       return { ...state, favorites: favoritesFiltered }
 
-    // Add favorites to Local Storage ////////////////////////////////////////////////////////////////
+    // Add favorites to Local Storage ===================================================================
     case actionTypes.SET_LOCAL_FAVORITES:
       const localFavorites = action.payload
       return { ...state, favorites: [...localFavorites] }
 
-    // Increase product quantity //////////////////////////////////////////////////////////////////
+    // Increase product quantity ========================================================================
     case actionTypes.INCREASE_QTY:
       const prodIncrease = bag.map((prod) =>
         prod.variant_id === action.payload
@@ -111,7 +111,7 @@ const shoppingReducer = (
       )
       return { ...state, bag: prodIncrease }
 
-    // Decrease product quantity //////////////////////////////////////////////////////////////////
+    // Decrease product quantity ========================================================================
     case actionTypes.DECREASE_QTY:
       const prodDecrease = bag.map((prod) =>
         prod.variant_id === action.payload
@@ -120,7 +120,7 @@ const shoppingReducer = (
       )
       return { ...state, bag: prodDecrease }
 
-    // Set bag total //////////////////////////////////////////////////////////////////
+    // Set bag total ====================================================================================
     case actionTypes.SET_BAG_TOTAL:
       const totalPrice = bag.reduce((sum, item) => {
         const price = item.total

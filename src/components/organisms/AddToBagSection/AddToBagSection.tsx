@@ -1,25 +1,19 @@
+import { FC, useEffect } from "react"
 import { Button, Typography } from "@components/atoms"
 import { DeliveryInfo } from "@components/molecules"
 import { Product_int } from "@store/shopping/productsTypes"
-import { selectSizeToggle } from "@store/UI/UI.actions"
-import { FC, useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import useShoppingReducer from "@hooks/useShoppingReducer"
+import useUIReducer from "@hooks/useUIReducer"
 import styles from "./AddToBagSection.module.scss"
-import { MainStore } from "@store/store"
-import { addToBag, addToFavorites } from "@store/shopping/shopping.actions"
 
-interface Props {
-  data: Product_int
-}
+const AddToBagSection: FC<{ data: Product_int }> = ({ data }) => {
+  // Hooks =====================================================================================
+  const { handleDispatchAddToBag, handleDispatchAddToFavorites } = useShoppingReducer()
+  const { handleDispatchSelectSizeToggle, selectSizeState } = useUIReducer()
 
-const AddToBagSection: FC<Props> = ({ data }) => {
-  const dispatch = useDispatch()
-  const sizeSelectorState = useSelector((state: MainStore) => state.UI.selectSizeState)
-  const handleSize = (size: string, variant_id: string) => {
-    return dispatch(selectSizeToggle(size, variant_id))
-  }
+  // Effects ===================================================================================
   useEffect(() => {
-    dispatch(selectSizeToggle(data.sizes[0].size, data.sizes[0].variant_id))
+    handleDispatchSelectSizeToggle(data.sizes[0].size, data.sizes[0].variant_id)
   }, [data])
 
   return (
@@ -34,11 +28,13 @@ const AddToBagSection: FC<Props> = ({ data }) => {
                 id="sizeContainer"
                 key={variant.id}
                 className={
-                  sizeSelectorState.size === variant.size || variant.size === "One Size"
+                  selectSizeState.size === variant.size || variant.size === "One Size"
                     ? styles.sizeBoxUnselected
                     : styles.sizeBoxSelected
                 }
-                onClick={() => handleSize(variant.size, variant.variant_id)}
+                onClick={() =>
+                  handleDispatchSelectSizeToggle(variant.size, variant.variant_id)
+                }
               >
                 <Typography variant="sTitle">{variant.size}</Typography>
               </div>
@@ -47,12 +43,15 @@ const AddToBagSection: FC<Props> = ({ data }) => {
         </div>
         <div>
           <Button
-            onClick={() => dispatch(addToBag(data.id, sizeSelectorState))}
+            onClick={() => handleDispatchAddToBag(data.id, selectSizeState)}
             style={{ marginBottom: "12px" }}
           >
             Add to bag
           </Button>
-          <Button variant="secondary" onClick={() => dispatch(addToFavorites(data.id))}>
+          <Button
+            variant="secondary"
+            onClick={() => handleDispatchAddToFavorites(data.id)}
+          >
             Add to favorites
           </Button>
         </div>

@@ -1,11 +1,9 @@
-import rootReducer from "@store/root.reducer"
+import mainStore from "@store/store"
 import { FC, ReactNode } from "react"
 import { Provider } from "react-redux"
 import { BrowserRouter as Router } from "react-router-dom"
-import { applyMiddleware, createStore } from "redux"
-import thunk from "redux-thunk"
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = mainStore
 export const TestWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Router>

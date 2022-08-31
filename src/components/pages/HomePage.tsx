@@ -1,21 +1,17 @@
 import { FC, useEffect } from "react"
 import { ProductsListing } from "@components/organisms"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchProducts } from "@store/shopping/shopping.actions"
-import { MainStore } from "@store/store"
 import { Hero } from "@components/molecules"
 import { Container } from "@components/atoms"
 import millerain from "@assets/images/millerain.jpg"
 import millerainMobile from "@assets/images/millerainMobile.jpg"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 
 const HomePage: FC = () => {
-  const dispatch = useDispatch()
-
+  // Hooks ==========================================================================
+  const { handleDispatchFetchProducts, products } = useShoppingReducer()
   useEffect(() => {
-    dispatch(fetchProducts("Parka"))
+    handleDispatchFetchProducts("Parka")
   }, [])
-
-  const data = useSelector((state: MainStore) => state.shopping.products)
 
   return (
     <>
@@ -25,7 +21,7 @@ const HomePage: FC = () => {
           mobileImage={millerainMobile}
           title="BRITISH MILLERAIN"
         />
-        <ProductsListing data={data} />
+        <ProductsListing data={products} />
       </Container>
     </>
   )

@@ -8,11 +8,13 @@ import {
 } from "./productsTypes"
 import "dotenv/config"
 
+// Set loading products action ======================================================================
 export const loadingProducts = (): actionTypes.loadingProducts_int => {
   return {
     type: actionTypes.LOADING_PRODUCTS
   }
 }
+// Set products data action =========================================================================
 export const setProductsData = (
   products: Product_int[]
 ): actionTypes.setProductsData_int => {
@@ -21,6 +23,7 @@ export const setProductsData = (
     payload: products
   }
 }
+// Set current product action =======================================================================
 export const setCurrentProduct = (
   product: Product_int[]
 ): actionTypes.setCurrentProduct_int => {
@@ -29,6 +32,7 @@ export const setCurrentProduct = (
     payload: product
   }
 }
+// Add to bag action ================================================================================
 export const addToBag = (
   id: number,
   sizeInfo: SizeInfo_int
@@ -44,18 +48,21 @@ export const addToBag = (
     }
   }
 }
+// Set local bag action ============================================================================
 export const setLocalBag = (localItems: BagItem_int[]): actionTypes.setLocalBag_int => {
   return {
     type: actionTypes.SET_LOCAL_BAG,
     payload: localItems
   }
 }
+// Remove from bag action ==========================================================================
 export const removeFromBag = (id: string): actionTypes.removeFromBag_int => {
   return {
     type: actionTypes.REMOVE_FROM_BAG,
     payload: id
   }
 }
+// Add to favorites action ========================================================================
 export const addToFavorites = (id: number): actionTypes.addToFavorites_int => {
   return {
     type: actionTypes.ADD_TO_FAVORITES,
@@ -64,6 +71,7 @@ export const addToFavorites = (id: number): actionTypes.addToFavorites_int => {
     }
   }
 }
+// Set local favorites action =====================================================================
 export const setLocalFavorites = (
   localItems: FavoritesItem_int[]
 ): actionTypes.setLocalFavorites_int => {
@@ -72,30 +80,35 @@ export const setLocalFavorites = (
     payload: localItems
   }
 }
+// Remove from favorites action ===================================================================
 export const removeFromFavorites = (id: number): actionTypes.removeFromFavorites_int => {
   return {
     type: actionTypes.REMOVE_FROM_FAVORITES,
     payload: id
   }
 }
+// Increase product quantity action ===============================================================
 export const increaseQty = (id: string): actionTypes.increaseQty_int => {
   return {
     type: actionTypes.INCREASE_QTY,
     payload: id
   }
 }
+// Decrease product quantity action ===============================================================
 export const decreaseQty = (id: string): actionTypes.decreaseQty_int => {
   return {
     type: actionTypes.DECREASE_QTY,
     payload: id
   }
 }
+// Set bag total price action =====================================================================
 export const setBagTotal = (): actionTypes.setBagTotal_int => {
   return {
     type: actionTypes.SET_BAG_TOTAL
   }
 }
 
+// Fetch products action ==========================================================================
 export const fetchProducts = (subCategory: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
 ): Promise<void> => {
@@ -109,6 +122,7 @@ export const fetchProducts = (subCategory: string) => async (
   }
 }
 
+// Fetch a single product action ==================================================================
 export const fetchSingleProduct = (id: string) => async (
   dispatch: Dispatch<actionTypes.DispatchFetchAndSetProducts_type>
 ): Promise<void> => {

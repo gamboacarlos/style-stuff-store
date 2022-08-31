@@ -1,14 +1,14 @@
 import { Container, Typography } from "@components/atoms"
-import React, { FC, useEffect } from "react"
+import { FC, useEffect } from "react"
 import styles from "./Favorites.module.scss"
-import { useSelector } from "react-redux"
-import { MainStore } from "@store/store"
 import FavoriteItem from "@components/molecules/FavoriteItem/FavoriteItem"
 import { useHistory } from "react-router-dom"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 
 const Favorites: FC = () => {
+  // Hooks =============================================================================
   const history = useHistory()
-  const favorites = useSelector((state: MainStore) => state.shopping.favorites)
+  const { favorites } = useShoppingReducer()
   useEffect(() => {
     window.scrollTo(0, 0)
     favorites.length === 0 &&
@@ -16,6 +16,7 @@ const Favorites: FC = () => {
         history.push("/")
       }, 1500)
   }, [favorites])
+
   return (
     <Container>
       {favorites.length > 0 ? (

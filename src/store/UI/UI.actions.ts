@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes"
 
+// Toggle mobile menu state action ==========================================================
 export const mobileMenuToggle = (
   currentState: boolean
 ): actionTypes.mobileMenuToggle_int => {
@@ -8,6 +9,8 @@ export const mobileMenuToggle = (
     payload: currentState
   }
 }
+
+// Toggle select size action ================================================================
 export const selectSizeToggle = (
   size: string,
   variant_id: string
@@ -20,6 +23,8 @@ export const selectSizeToggle = (
     }
   }
 }
+
+// Toggle show shopping bag action ==========================================================
 export const shoppingBagToggle = (
   currentState: boolean
 ): actionTypes.shoppingBagToggle_int => {

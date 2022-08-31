@@ -1,16 +1,14 @@
 import { FC, useEffect } from "react"
-import { useSelector } from "react-redux"
-import { MainStore } from "@store/store"
 import { BagItem } from "@components/molecules"
 import { Button, Container, Typography } from "@components/atoms"
 import styles from "./CheckoutPage.module.scss"
 import { useHistory } from "react-router-dom"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 
 const CheckoutPage: FC = () => {
-  const bag = useSelector((state: MainStore) => state.shopping.bag)
-  const total = useSelector((state: MainStore) => state.shopping.bagTotal)
+  // Hooks =============================================================================
+  const { bag, bagTotal } = useShoppingReducer()
   const history = useHistory()
-
   useEffect(() => {
     window.scrollTo(0, 0)
     bag.length === 0 &&
@@ -27,7 +25,7 @@ const CheckoutPage: FC = () => {
             <BagItem data={prod} key={prod.variant_id} />
           ))}
           <div className={styles.checkoutTotal}>
-            <Typography variant="pTitle">{`TOTAL (EXC. DELIVERY) €‌ ${total}`}</Typography>
+            <Typography variant="pTitle">{`TOTAL (EXC. DELIVERY) €‌ ${bagTotal}`}</Typography>
           </div>
           <div className={styles.checkoutButton}>
             <Button>PROCEED TO CHECKOUT</Button>

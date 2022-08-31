@@ -1,74 +1,67 @@
 import { FC, useState } from "react"
-import styles from "./BagItem.module.scss"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 import { Icons, Typography } from "@components/atoms"
 import { BagItem_int } from "@store/shopping/productsTypes"
+import styles from "./BagItem.module.scss"
 import { Link } from "react-router-dom"
-import { useDispatch } from "react-redux"
-import { decreaseQty, increaseQty, removeFromBag } from "@store/shopping/shopping.actions"
-const { close } = Icons
 import { motion } from "framer-motion"
+import { itemAnimationVariants } from "@utils/constants"
+const { close } = Icons
 
-interface Props {
-  data: BagItem_int
-}
+const BagItem: FC<{ data: BagItem_int }> = ({ data }) => {
+  // Hooks ==================================================================================
+  const {
+    handleDispatchRemoveFromBag,
+    handleDispatchIncreaseQty,
+    handleDispatchDecreaseQty
+  } = useShoppingReducer()
+  const [removeAnimation, setRemoveAnimation] = useState(false)
 
-const BagItem: FC<Props> = ({ data }) => {
-  const dispatch = useDispatch()
+  // Constants ==============================================================================
+  const { name, price, image, id, variant_id, size, qty } = data
   const handleDelete = (id: string) => {
     setTimeout(() => {
-      dispatch(removeFromBag(id))
+      handleDispatchRemoveFromBag(id)
     }, 600)
     return setRemoveAnimation(!removeAnimation)
   }
-  const handleIncrease = (id: string) => dispatch(increaseQty(id))
-  const handleDecrease = (id: string) => (data.qty > 1 ? dispatch(decreaseQty(id)) : null)
-  const [removeAnimation, setRemoveAnimation] = useState(false)
 
   return (
     <motion.div
       initial={"hide"}
       animate={removeAnimation ? "hide" : "show"}
-      variants={{
-        show: {
-          transform: "translateX(0em)",
-          opacity: 1,
-          transition: { delay: 0.05, duration: 0.2 }
-        },
-        hide: {
-          transform: "translateX(5em)",
-          opacity: 0,
-          transition: { delay: 0.05, duration: 0.2 }
-        }
-      }}
+      variants={itemAnimationVariants}
       className={styles.bagItemWrapper}
     >
-      <Link to={`/product/details/${data.id}`}>
-        <img src={data.image} alt="image" />
+      <Link to={`/product/details/${id}`}>
+        <img src={image} alt="image" />
       </Link>
       <div className={styles.itemQtyControls}>
         <button
           type="button"
           style={{ cursor: "pointer" }}
-          onClick={() => handleIncrease(data.variant_id)}
+          onClick={() => handleDispatchIncreaseQty(variant_id)}
         >
           +
         </button>
-        <Typography>{data.qty}</Typography>
+        <Typography>{qty}</Typography>
         <button
           type="button"
           style={{ cursor: "pointer" }}
-          onClick={() => handleDecrease(data.variant_id)}
+          onClick={() => {
+            qty > 1 ? handleDispatchDecreaseQty(variant_id) : null
+          }}
         >
           -
         </button>
       </div>
       <div className={styles.bagItemInfo}>
-        <Typography variant="sTitle">{data.name}</Typography>
-        <Typography variant="span">{`€‌ ${data.price}`}</Typography>
-        <Typography>{data.size}</Typography>
+        <Typography variant="sTitle">{name}</Typography>
+        <Typography variant="span">{`€‌ ${price}`}</Typography>
+        <Typography>{size}</Typography>
       </div>
       <div className={styles.itemRemoveControl}>
-        <img src={close} alt="X" onClick={() => handleDelete(data.variant_id)} />
+        <img src={close} alt="X" onClick={() => handleDelete(variant_id)} />
       </div>
     </motion.div>
   )

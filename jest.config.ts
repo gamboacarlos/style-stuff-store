@@ -77,7 +77,8 @@ export default {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@assets/(.*)$": "<rootDir>/public/$1",
     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
-    "^@store/(.*)$": "<rootDir>/src/store/$1"
+    "^@store/(.*)$": "<rootDir>/src/store/$1",
+    "^@hooks/(.*)$": "<rootDir>/src/hooks/$1"
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

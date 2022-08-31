@@ -1,35 +1,26 @@
+import { FC, useState } from "react"
 import { Typography } from "@components/atoms"
-import React, { FC, useState } from "react"
 import styles from "./FavoriteItem.module.scss"
-import { useDispatch } from "react-redux"
 import { FavoritesItem_int } from "@store/shopping/productsTypes"
+import { itemAnimationVariants } from "@utils/constants"
+import useShoppingReducer from "@hooks/useShoppingReducer"
 import { Icons } from "@components/atoms"
-import { removeFromFavorites } from "@store/shopping/shopping.actions"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
 const FavoriteItem: FC<{ data: FavoritesItem_int }> = ({ data }) => {
-  const [removeAnimation, setRemoveAnimation] = useState(false)
+  // Hooks =============================================================================
+  const [removeAnimation, setRemoveAnimation] = useState<boolean>(false)
+  const { handleDispatchRemoveFromFavorites } = useShoppingReducer()
+
+  // Constants =========================================================================
   const { name, price, images, id } = data
-  const dispatch = useDispatch()
-  const { close } = Icons
 
   return (
     <motion.div
       initial={"hide"}
       animate={removeAnimation ? "hide" : "show"}
-      variants={{
-        show: {
-          transform: "translateX(0em)",
-          opacity: 1,
-          transition: { delay: 0.05, duration: 0.2 }
-        },
-        hide: {
-          transform: "translateX(5em)",
-          opacity: 0,
-          transition: { delay: 0.05, duration: 0.2 }
-        }
-      }}
+      variants={itemAnimationVariants}
       className={styles.favoriteWrapper}
     >
       <Link to={`/product/details/${id}`}>
@@ -49,11 +40,11 @@ const FavoriteItem: FC<{ data: FavoritesItem_int }> = ({ data }) => {
       </div>
       <div className={styles.favoriteRemoveControl}>
         <img
-          src={close}
+          src={Icons.close}
           alt="X"
           onClick={() => {
             setTimeout(() => {
-              dispatch(removeFromFavorites(id))
+              handleDispatchRemoveFromFavorites(id)
             }, 600)
             setRemoveAnimation(!removeAnimation)
           }}
