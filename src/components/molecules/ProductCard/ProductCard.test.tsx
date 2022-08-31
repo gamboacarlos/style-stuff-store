@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react"
 import { ProductCard } from "@components/molecules"
-import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom"
 import { testProductCard } from "@utils/test"
 import TestingWrapper from "@utils/test/TestingWrapper"
 import { FC } from "react"

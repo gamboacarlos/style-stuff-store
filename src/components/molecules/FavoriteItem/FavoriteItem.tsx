@@ -32,7 +32,7 @@ const FavoriteItem: FC<{ data: FavoritesItem_int }> = ({ data }) => {
       }}
       className={styles.favoriteWrapper}
     >
-      <Link to={`/product/details/${data.id}`}>
+      <Link to={`/product/details/${id}`}>
         <div className={styles.thumbnailGrid}>
           <img src={images[0].image_270x270} alt="img" className={styles.main} />
           <img src={images[1].image_270x270} alt="img" className={styles.mini1} />
@@ -40,10 +40,12 @@ const FavoriteItem: FC<{ data: FavoritesItem_int }> = ({ data }) => {
         </div>
       </Link>
       <div className={styles.favoriteInfo}>
-        <Link to={`/product/details/${data.id}`}>
-          <Typography variant="pTitle">{name}</Typography>
+        <Link to={`/product/details/${id}`}>
+          <Typography variant="pTitle" testId="favName">
+            {name}
+          </Typography>
         </Link>
-        <Typography variant="span">{`€‌ ${price}`}</Typography>
+        <Typography variant="span" testId="favPrice">{`€‌ ${price}`}</Typography>
       </div>
       <div className={styles.favoriteRemoveControl}>
         <img

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react"
-import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom"
 import { BagItem } from "@components/molecules"
 import TestingWrapper from "@utils/test/TestingWrapper"
 import { FC } from "react"
