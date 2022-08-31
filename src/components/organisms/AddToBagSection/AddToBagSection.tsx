@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react"
 import { Button, Typography } from "@components/atoms"
 import { DeliveryInfo } from "@components/molecules"
-import { Product_int } from "@store/shopping/productsTypes"
+import { Product_int, SizeInfo_int } from "@store/shopping/productsTypes"
 import useShoppingReducer from "@hooks/useShoppingReducer"
 import useUIReducer from "@hooks/useUIReducer"
 import styles from "./AddToBagSection.module.scss"
@@ -43,7 +43,9 @@ const AddToBagSection: FC<{ data: Product_int }> = ({ data }) => {
         </div>
         <div>
           <Button
-            onClick={() => handleDispatchAddToBag(data.id, selectSizeState)}
+            onClick={() =>
+              handleDispatchAddToBag(data.id, selectSizeState as SizeInfo_int)
+            }
             style={{ marginBottom: "12px" }}
           >
             Add to bag

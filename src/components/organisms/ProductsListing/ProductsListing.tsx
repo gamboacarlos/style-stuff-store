@@ -6,7 +6,7 @@ import { Product_int } from "@store/shopping/productsTypes"
 const ProductsListing: FC<{ data: Product_int[] }> = ({ data }) => {
   return (
     <div className={styles.pListingWrapper}>
-      {data.map((prod: any) => (
+      {data.map((prod: Product_int) => (
         <ProductCard
           image={prod.product_image.image_540x540}
           key={prod.id}

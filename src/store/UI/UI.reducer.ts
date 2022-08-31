@@ -1,13 +1,14 @@
+import { SizeInfo_int } from "@store/shopping/productsTypes"
 import * as actionTypes from "./actionTypes"
 
 interface InitialState {
   mobileMenuState: boolean
-  selectSizeState: any
+  selectSizeState: Partial<SizeInfo_int>
   shoppingBagState: boolean
 }
 const initialState: InitialState = {
   mobileMenuState: false,
-  selectSizeState: [],
+  selectSizeState: {},
   shoppingBagState: false
 }
 const UIReducer = (

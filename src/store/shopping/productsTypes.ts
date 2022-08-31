@@ -30,6 +30,7 @@ export type ProductMainImage_type = {
   image_270x270: string
   image_400x400: string
   image_780x780: string
+  image_540x540: string
 }
 export type ProductImages_type = {
   [index: number]: {
